@@ -346,8 +346,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     
     </div>
 
-   <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwr1AzIpv9ECG0K2A24kUzOWHuh2BeN8oP4K8yzcKJ2qP_H7HfEXOjfpRiIkoUl8q8x/exec" method="POST">
-  <label>Name
+ <form class="contact-form" action="https://script.google.com/macros/s/XXXXXXXX/exec" method="POST" target="hidden_iframe" onsubmit="showContactSuccess()">
     <input type="text" name="name" placeholder="Your name" required>
   </label>
 
@@ -363,6 +362,13 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 
   <button class="btn primary" type="submit">SEND MESSAGE</button>
 </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<div id="contact-success" style="display:none; margin-top:20px;">
+  <h3>MESSAGE RECEIVED</h3>
+  <p>Thank you for reaching out to The Forge NJ.</p>
+  <p>Someone from The Forge will be in touch with you shortly.</p>
+</div>
   </div>
 </section>
 </main>
@@ -376,6 +382,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 </footer>
 <script>
 const btn=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-nav');btn?.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open)});document.querySelectorAll('.site-nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+  <script>
+function showContactSuccess() {
+  setTimeout(function() {
+    document.querySelector('.contact-form').reset();
+    document.getElementById('contact-success').style.display = 'block';
+  }, 500);
+}
 </script>
 </body>
 </html>
