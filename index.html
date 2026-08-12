@@ -392,8 +392,8 @@ function showContactSuccess() {
     const success = document.getElementById('contact-success');
 
     form.reset();
-    form.style.display = 'none';
     success.style.display = 'block';
+    form.replaceWith(success);
   }, 500);
 }
 </script>
