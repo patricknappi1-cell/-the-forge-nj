@@ -388,10 +388,15 @@ const btn=document.querySelector('.menu-toggle');const nav=document.querySelecto
   <script>
 function showContactSuccess() {
   setTimeout(function() {
-    document.querySelector('.contact-form').reset();
-    document.getElementById('contact-success').style.display = 'block';
+    const form = document.querySelector('.contact-form');
+    const success = document.getElementById('contact-success');
+
+    form.reset();
+    form.style.display = 'none';
+    success.style.display = 'block';
   }, 500);
 }
+</script>
 </script>
 </body>
 </html>
