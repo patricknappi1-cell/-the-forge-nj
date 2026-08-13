@@ -127,8 +127,37 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .calendar-heading>p:last-child{margin:18px 0 0;color:#aaa;font-size:18px}
 .calendar-months{display:grid;gap:18px}
 .calendar-month{display:grid;grid-template-columns:260px minmax(0,1fr);background:#090909;border:1px solid #343434;overflow:hidden}
-.month-art{min-height:330px;background:#111}
-.month-art img{width:100%;height:100%;object-fit:cover}
+.month-art{
+  min-height:330px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background-color:#090909;
+  background-size:cover;
+  background-position:center;
+}
+.calendar-month:nth-child(1) .month-art{background-image:url('events-august-2026.jpg')}
+.calendar-month:nth-child(2) .month-art{background-image:url('events-september-2026.jpg')}
+.calendar-month:nth-child(3) .month-art{background-image:url('events-october-2026.jpg')}
+.calendar-month:nth-child(4) .month-art{background-image:url('events-november-2026.jpg')}
+.calendar-month:nth-child(5) .month-art{background-image:url('events-december-2026.jpg')}
+.month-art:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.58);
+  backdrop-filter:blur(3px);
+}
+.month-art img{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  box-shadow:0 0 35px rgba(0,0,0,.65);
+}
 .month-calendar-wrap{min-width:0;overflow-x:auto}
 .month-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:760px;height:100%;background:#121212}
 .calendar-dow{padding:10px 8px;text-align:center;border-right:1px solid #383838;border-bottom:1px solid #4a4a4a;color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px}
@@ -147,14 +176,15 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .calendar-more:hover{background:var(--red-dark)}
 @media(max-width:900px){
   .calendar-month{grid-template-columns:1fr}
-  .month-art{height:230px;min-height:0}
-  .month-art img{object-position:center 38%}
+  .month-art{height:auto;min-height:0;background-image:none!important}
+  .month-art:before{display:none}
+  .month-art img{width:100%;height:auto;box-shadow:none}
 }
 @media(max-width:600px){
   .events-calendar{padding-top:70px}
   .calendar-heading{margin-bottom:30px}
   .calendar-heading>p:last-child{font-size:16px}
-  .month-art{height:220px}
+  .month-art{height:auto}
   .month-calendar-wrap{position:relative}
   .month-calendar-wrap:before{content:"Swipe calendar →";display:block;position:sticky;left:0;width:max-content;padding:7px 10px;background:#0b0b0b;color:#777;font-size:10px;letter-spacing:1px;z-index:2}
   .month-calendar{min-width:760px}
