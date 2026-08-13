@@ -152,17 +152,66 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .month-art{
   min-height:330px;
   display:flex;
-  align-items:flex-start;
-  justify-content:center;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
   overflow:hidden;
   background:#050505;
 }
-.month-art img{
+.month-image-crop{
+  position:relative;
   width:100%;
-  height:auto;
-  object-fit:contain;
+  aspect-ratio:2.15 / 1;
+  overflow:hidden;
   flex:0 0 auto;
   border-bottom:1px solid #262626;
+  background:#090909;
+}
+.month-name{
+  position:absolute;
+  top:14px;
+  left:14px;
+  z-index:2;
+  padding:7px 10px 6px;
+  background:rgba(0,0,0,.72);
+  border-left:4px solid var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+  line-height:1;
+  text-transform:uppercase;
+}
+.month-image-crop img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top;
+}
+.month-scripture{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px 22px 24px;
+  text-align:center;
+  background:#050505;
+}
+.month-scripture p{
+  margin:0;
+  color:#e5e5e5;
+  font-size:15px;
+  line-height:1.45;
+  font-style:italic;
+}
+.month-scripture strong{
+  display:block;
+  margin-top:10px;
+  color:var(--red);
+  font-size:11px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
 }
 .month-calendar-wrap{min-width:0;overflow-x:auto}
 .month-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:760px;height:100%;background:#121212}
@@ -195,7 +244,10 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 @media(max-width:900px){
   .calendar-month{grid-template-columns:1fr}
   .month-art{height:auto;min-height:0;background:#050505}
-  .month-art img{width:100%;height:auto}
+  .month-image-crop{aspect-ratio:2.15 / 1}
+  .month-name{top:10px;left:10px;font-size:11px;letter-spacing:1.5px;padding:6px 8px 5px}
+  .month-scripture{padding:18px 20px 20px}
+  .month-scripture p{font-size:14px}
 }
 @media(max-width:600px){
   .events-calendar{padding-top:70px}
@@ -203,6 +255,10 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
   .calendar-heading>p:last-child{font-size:16px}
 
   .month-art{height:auto}
+  .month-image-crop{aspect-ratio:2.15 / 1}
+  .month-scripture{padding:17px 18px 19px}
+  .month-scripture p{font-size:13px;line-height:1.4}
+  .month-scripture strong{font-size:10px;margin-top:8px}
   .month-calendar-wrap{
     position:relative;
     width:100%;
@@ -449,7 +505,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       
       <article class="calendar-month">
         <div class="month-art">
-          <img src="events-august-2026.jpg" alt="August 2026 seasonal artwork">
+          <div class="month-image-crop">
+            <div class="month-name">AUGUST</div>
+            <img src="events-august-2026.jpg" alt="August 2026 seasonal artwork">
+          </div>
+          <div class="month-scripture">
+            <p>“The Lord is my strength and my shield.”</p>
+            <strong>Psalm 28:7</strong>
+          </div>
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="August 2026 calendar">
@@ -460,7 +523,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <img src="events-september-2026.jpg" alt="September 2026 seasonal artwork">
+          <div class="month-image-crop">
+            <div class="month-name">SEPTEMBER</div>
+            <img src="events-september-2026.jpg" alt="September 2026 seasonal artwork">
+          </div>
+          <div class="month-scripture">
+            <p>“Let us not grow weary in doing good.”</p>
+            <strong>Galatians 6:9</strong>
+          </div>
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="September 2026 calendar">
@@ -471,7 +541,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <img src="events-october-2026.jpg" alt="October 2026 seasonal artwork">
+          <div class="month-image-crop">
+            <div class="month-name">OCTOBER</div>
+            <img src="events-october-2026.jpg" alt="October 2026 seasonal artwork">
+          </div>
+          <div class="month-scripture">
+            <p>“The harvest is plentiful, but the workers are few.”</p>
+            <strong>Matthew 9:37</strong>
+          </div>
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="October 2026 calendar">
@@ -482,7 +559,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <img src="events-november-2026.jpg" alt="November 2026 seasonal artwork">
+          <div class="month-image-crop">
+            <div class="month-name">NOVEMBER</div>
+            <img src="events-november-2026.jpg" alt="November 2026 seasonal artwork">
+          </div>
+          <div class="month-scripture">
+            <p>“Give thanks to the Lord, for he is good.”</p>
+            <strong>Psalm 107:1</strong>
+          </div>
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="November 2026 calendar">
@@ -493,7 +577,14 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <img src="events-december-2026.jpg" alt="December 2026 seasonal artwork">
+          <div class="month-image-crop">
+            <div class="month-name">DECEMBER</div>
+            <img src="events-december-2026.jpg" alt="December 2026 seasonal artwork">
+          </div>
+          <div class="month-scripture">
+            <p>“For unto us a child is born, unto us a son is given.”</p>
+            <strong>Isaiah 9:6</strong>
+          </div>
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="December 2026 calendar">
