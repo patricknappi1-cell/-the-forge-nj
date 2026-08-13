@@ -24,7 +24,7 @@ h1{font-size:clamp(54px,8vw,102px);line-height:.88;margin:8px 0 22px;letter-spac
 .flyer-wrap{position:relative;border:1px solid #333;background:#050505;box-shadow:0 25px 70px rgba(0,0,0,.42)}.flyer-wrap img{display:block;width:100%;height:auto}
 /* Clickable hotspots align with the two visual buttons at the bottom of the flyer. */
 .flyer-hotspot{position:absolute;bottom:1.1%;height:6.2%;z-index:2;border-radius:10px;outline:0}.flyer-hotspot:focus-visible{box-shadow:0 0 0 4px #fff,0 0 0 7px var(--red)}.flyer-signup{left:4.1%;width:44.7%}.flyer-share{left:50.7%;width:44.9%}
-.details{position:sticky;top:106px;background:#111;border-top:6px solid var(--red);padding:34px}.details h2{font-size:34px;line-height:1;margin:0 0 20px}.details p{color:#bbb}.detail-list{margin:26px 0 30px;padding:0;list-style:none;border-top:1px solid #2b2b2b}.detail-list li{padding:13px 0;border-bottom:1px solid #2b2b2b}.detail-list strong{display:block;color:#fff;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}.detail-list span{color:#bbb}.actions{display:grid;gap:11px}.fine{font-size:12px;color:#777!important;margin-top:18px!important}
+.details{position:sticky;top:106px;background:#111;border-top:6px solid var(--red);padding:34px}.details h2{font-size:34px;line-height:1;margin:0 0 20px}.details p{color:#bbb}.detail-list{margin:26px 0 30px;padding:0;list-style:none;border-top:1px solid #2b2b2b}.detail-list li{padding:13px 0;border-bottom:1px solid #2b2b2b}.detail-list strong{display:block;color:#fff;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}.detail-list span{color:#bbb}.actions{display:grid;grid-template-columns:1fr 1fr;gap:11px}.actions .full-row{grid-column:1/-1}.fine{font-size:12px;color:#777!important;margin-top:18px!important}.share-status{display:none;margin:2px 0 0;color:#aaa;font-size:12px}.share-status.show{display:block}
 @media(max-width:850px){.hero{padding-top:48px}.event-layout{grid-template-columns:1fr}.details{position:static}}
 @media(max-width:650px){h1{letter-spacing:-2px}.event-layout{gap:24px;padding-bottom:50px}.details{padding:25px}}
 </style>
@@ -44,7 +44,7 @@ h1{font-size:clamp(54px,8vw,102px);line-height:.88;margin:8px 0 22px;letter-spac
 <div class="flyer-wrap">
 <img src="testimony-night-2026.png" alt="Voices of Victory Testimony Night flyer for September 25, 2026 at The Forge">
 <a class="flyer-hotspot flyer-signup" href="testimony-night-signup.html" aria-label="Sign up to attend Testimony Night"></a>
-<a class="flyer-hotspot flyer-share" href="testimony-night-share.html" aria-label="Tell The Forge you would like to share your testimony"></a>
+<a class="flyer-hotspot flyer-share" href="testimony-night-share.html" aria-label="Share my testimony at Testimony Night"></a>
 </div>
 <aside class="details">
 <p class="eyebrow">REAL STORIES. REAL VICTORIES. REAL HOPE.</p>
@@ -59,12 +59,47 @@ h1{font-size:clamp(54px,8vw,102px);line-height:.88;margin:8px 0 22px;letter-spac
 <li><strong>Refreshments</strong><span>Light refreshments will be served</span></li>
 </ul>
 <div class="actions">
-<a class="btn btn-primary" href="testimony-night-signup.html">SIGN UP</a>
-<a class="btn btn-secondary" href="testimony-night-share.html">I’D LIKE TO SHARE</a>
+<a class="btn btn-primary" href="testimony-night-signup.html">SIGN UP TO ATTEND</a>
+<a class="btn btn-secondary" href="testimony-night-share.html">SHARE MY TESTIMONY</a>
+<button class="btn btn-secondary full-row" id="share-event-button" type="button">SHARE THIS EVENT</button>
 </div>
-<p class="fine">Want to attend? Use Sign Up. Want to be considered to share your testimony that night? Use I’d Like to Share.</p>
+<p id="share-event-status" class="share-status" aria-live="polite"></p>
+<p class="fine">Want to attend? Use Sign Up to Attend. Want to be considered to give your testimony that night? Use Share My Testimony.</p>
 </aside>
 </div></section>
 </main>
 <footer>THE FORGE NJ · 1 EVANS ST · FAIRFIELD, NJ 07004</footer>
+
+<script>
+(function(){
+  const btn = document.getElementById('share-event-button');
+  const status = document.getElementById('share-event-status');
+  if (!btn) return;
+
+  btn.addEventListener('click', async function(){
+    const shareData = {
+      title: 'Voices of Victory Testimony Night | The Forge NJ',
+      text: 'Join us for Voices of Victory Testimony Night at The Forge — Friday, September 25 at 7:00 PM.',
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(window.location.href);
+        status.textContent = 'Event link copied. Send it to family and friends!';
+        status.classList.add('show');
+      } else {
+        window.prompt('Copy this event link:', window.location.href);
+      }
+    } catch (err) {
+      if (err && err.name === 'AbortError') return;
+      status.textContent = 'Copy this page address to share the event.';
+      status.classList.add('show');
+    }
+  });
+})();
+</script>
+
 </body></html>
