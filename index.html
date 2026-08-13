@@ -121,6 +121,19 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
   }
 }
 
+.calendar-change-note{
+  margin:8px 0 0;
+  color:#777;
+  font-size:12px;
+  letter-spacing:.4px;
+  font-style:italic;
+}
+.combined-calendar-heading{
+  margin-top:90px;
+  padding-top:70px;
+  border-top:1px solid var(--line);
+}
+
 /* UPCOMING EVENTS CALENDAR */
 .events-calendar{background:#0b0b0b;border-top:1px solid var(--line)}
 .calendar-heading{margin-bottom:42px}
@@ -129,34 +142,18 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .calendar-month{display:grid;grid-template-columns:260px minmax(0,1fr);background:#090909;border:1px solid #343434;overflow:hidden}
 .month-art{
   min-height:330px;
-  position:relative;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
   overflow:hidden;
-  background-color:#090909;
-  background-size:cover;
-  background-position:center;
-}
-.calendar-month:nth-child(1) .month-art{background-image:url('events-august-2026.jpg')}
-.calendar-month:nth-child(2) .month-art{background-image:url('events-september-2026.jpg')}
-.calendar-month:nth-child(3) .month-art{background-image:url('events-october-2026.jpg')}
-.calendar-month:nth-child(4) .month-art{background-image:url('events-november-2026.jpg')}
-.calendar-month:nth-child(5) .month-art{background-image:url('events-december-2026.jpg')}
-.month-art:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.58);
-  backdrop-filter:blur(3px);
+  background:#050505;
 }
 .month-art img{
-  position:relative;
-  z-index:1;
   width:100%;
   height:auto;
   object-fit:contain;
-  box-shadow:0 0 35px rgba(0,0,0,.65);
+  flex:0 0 auto;
+  border-bottom:1px solid #262626;
 }
 .month-calendar-wrap{min-width:0;overflow-x:auto}
 .month-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:760px;height:100%;background:#121212}
@@ -174,22 +171,113 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .special-event span{color:var(--red);font-size:11px;margin:3px 0 7px}
 .calendar-more{display:inline-block;background:var(--red);border:1px solid var(--red);padding:6px 8px;color:#fff!important;font-size:8px;font-weight:900;letter-spacing:.8px}
 .calendar-more:hover{background:var(--red-dark)}
+.calendar-day.has-holiday{background:linear-gradient(180deg,rgba(215,25,32,.055),#111)}
+.calendar-holiday{
+  margin-top:5px;
+  padding-top:4px;
+  border-top:1px solid rgba(215,25,32,.45);
+  color:#ff4a4f;
+  font-size:9px;
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:.35px;
+  text-transform:uppercase;
+}
 @media(max-width:900px){
   .calendar-month{grid-template-columns:1fr}
-  .month-art{height:auto;min-height:0;background-image:none!important}
-  .month-art:before{display:none}
-  .month-art img{width:100%;height:auto;box-shadow:none}
+  .month-art{height:auto;min-height:0;background:#050505}
+  .month-art img{width:100%;height:auto}
 }
 @media(max-width:600px){
   .events-calendar{padding-top:70px}
   .calendar-heading{margin-bottom:30px}
   .calendar-heading>p:last-child{font-size:16px}
+
   .month-art{height:auto}
-  .month-calendar-wrap{position:relative}
-  .month-calendar-wrap:before{content:"Swipe calendar →";display:block;position:sticky;left:0;width:max-content;padding:7px 10px;background:#0b0b0b;color:#777;font-size:10px;letter-spacing:1px;z-index:2}
-  .month-calendar{min-width:760px}
+  .month-calendar-wrap{
+    position:relative;
+    width:100%;
+    overflow-x:hidden;
+  }
+  .month-calendar{
+    width:100%;
+    min-width:0;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+  }
+
+  .calendar-dow{
+    padding:7px 1px;
+    font-size:8px;
+    letter-spacing:0;
+  }
+  .calendar-day{
+    min-height:76px;
+    padding:3px 2px;
+  }
+  .day-number{
+    font-size:10px;
+    margin-bottom:2px;
+  }
+  .calendar-event{
+    margin-top:2px;
+    padding-left:3px;
+    border-left-width:1px;
+    font-size:6.5px;
+    line-height:1.08;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+  .calendar-event strong{
+    font-size:6.5px;
+    line-height:1.08;
+  }
+  .calendar-event span{
+    font-size:6.5px;
+    margin-top:1px;
+  }
+  .special-event{
+    padding:0;
+  }
+  .special-event strong{
+    font-size:6.5px;
+  }
+  .special-event span{
+    font-size:7px;
+    margin:2px 0 4px;
+  }
+  .calendar-more{
+    padding:3px 3px;
+    font-size:5.5px;
+    letter-spacing:0;
+    white-space:nowrap;
+  }
 }
 
+@media(max-width:390px){
+  .calendar-dow{font-size:7px}
+  .calendar-day{padding:3px 1px}
+  .calendar-event,.calendar-event strong,.calendar-event span{font-size:6px}
+  .special-event strong{font-size:6px}
+  .special-event span{font-size:6.5px}
+  .calendar-more{font-size:5px;padding:3px 2px}
+}
+@media(max-width:600px){
+  .combined-calendar-heading{
+    margin-top:55px;
+    padding-top:45px;
+  }
+}
+
+
+@media(max-width:600px){
+  .calendar-holiday{
+    margin-top:2px;
+    padding-top:2px;
+    font-size:6px;
+    line-height:1.05;
+    letter-spacing:0;
+  }
+}
 </style>
 </head>
 <body>
@@ -309,12 +397,27 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 </section>
 
 
-<section class="section events-calendar" id="calendar">
+<section class="section events events-calendar" id="events">
   <div class="container">
-    <div class="calendar-heading">
+    <div class="events-head">
+      <div><p class="eyebrow">FORGE EVENTS</p><h2>MORE THAN A MEETING.</h2></div>
+      <p>Special gatherings may include worship, teaching, testimonies, physical challenges, prayer, confession, baptism and times of response to God.</p>
+    </div>
+
+    <div class="event-feature">
+      <div class="event-image"><img src="forge-men-huddle.jpg" alt="Men in a prayer huddle at The Forge"></div>
+      <div class="event-copy">
+        <span>THE FORGE NJ</span>
+        <h3>FORGED IN FIRE</h3>
+        <p>Gatherings built around repentance, confession, worship, physical endurance, brotherhood and the transforming work of the Holy Spirit.</p>
+      </div>
+    </div>
+
+    <div class="calendar-heading combined-calendar-heading">
       <p class="eyebrow">THE FORGE CALENDAR</p>
       <h2>UPCOMING EVENTS</h2>
       <p>Mark your calendar. Build brotherhood.</p>
+      <p class="calendar-change-note">Schedule and events are subject to change.</p>
     </div>
     <div class="calendar-months">
       
@@ -336,7 +439,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="September 2026 calendar">
             <div class="calendar-dow">SUN</div><div class="calendar-dow">MON</div><div class="calendar-dow">TUE</div><div class="calendar-dow">WED</div><div class="calendar-dow">THU</div><div class="calendar-dow">FRI</div><div class="calendar-dow">SAT</div>
-            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">2</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">3</div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day"><div class="day-number">7</div></div><div class="calendar-day"><div class="day-number">8</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">9</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">10</div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div></div><div class="calendar-day"><div class="day-number">15</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">16</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">17</div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div></div><div class="calendar-day"><div class="day-number">22</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">23</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">24</div></div><div class="calendar-day has-special"><div class="day-number">25</div><div class="calendar-event special-event"><strong>Testimony Night</strong><span>7:00 PM</span><a class="calendar-more" href="testimony-night.html">MORE INFO</a></div></div><div class="calendar-day"><div class="day-number">26</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div></div><div class="calendar-day"><div class="day-number">29</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">30</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
+            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">2</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">3</div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day has-holiday"><div class="day-number">7</div><div class="calendar-holiday">Labor Day</div></div><div class="calendar-day"><div class="day-number">8</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">9</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">10</div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div></div><div class="calendar-day"><div class="day-number">15</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">16</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">17</div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div></div><div class="calendar-day"><div class="day-number">22</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">23</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">24</div></div><div class="calendar-day has-special"><div class="day-number">25</div><div class="calendar-event special-event"><strong>Testimony Night</strong><span>7:00 PM</span><a class="calendar-more" href="testimony-night.html">MORE INFO</a></div></div><div class="calendar-day"><div class="day-number">26</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div></div><div class="calendar-day"><div class="day-number">29</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">30</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
           </div>
         </div>
       </article>
@@ -358,7 +461,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="November 2026 calendar">
             <div class="calendar-dow">SUN</div><div class="calendar-dow">MON</div><div class="calendar-dow">TUE</div><div class="calendar-dow">WED</div><div class="calendar-dow">THU</div><div class="calendar-dow">FRI</div><div class="calendar-dow">SAT</div>
-            <div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">4</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">11</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">18</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">25</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">26</div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
+            <div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">4</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">11</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">18</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">25</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day has-holiday"><div class="day-number">26</div><div class="calendar-holiday">Thanksgiving</div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
           </div>
         </div>
       </article>
@@ -369,7 +472,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="December 2026 calendar">
             <div class="calendar-dow">SUN</div><div class="calendar-dow">MON</div><div class="calendar-dow">TUE</div><div class="calendar-dow">WED</div><div class="calendar-dow">THU</div><div class="calendar-dow">FRI</div><div class="calendar-dow">SAT</div>
-            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">2</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">3</div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day"><div class="day-number">7</div></div><div class="calendar-day"><div class="day-number">8</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">9</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">10</div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div></div><div class="calendar-day"><div class="day-number">15</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">16</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">17</div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div></div><div class="calendar-day"><div class="day-number">22</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">23</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">24</div></div><div class="calendar-day"><div class="day-number">25</div></div><div class="calendar-day"><div class="day-number">26</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div></div><div class="calendar-day"><div class="day-number">29</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">30</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">31</div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
+            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">2</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">3</div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">6</div></div><div class="calendar-day"><div class="day-number">7</div></div><div class="calendar-day"><div class="day-number">8</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">9</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">10</div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">13</div></div><div class="calendar-day"><div class="day-number">14</div></div><div class="calendar-day"><div class="day-number">15</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">16</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">17</div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">20</div></div><div class="calendar-day"><div class="day-number">21</div></div><div class="calendar-day"><div class="day-number">22</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">23</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day has-holiday"><div class="day-number">24</div><div class="calendar-holiday">Christmas Eve</div></div><div class="calendar-day has-holiday"><div class="day-number">25</div><div class="calendar-holiday">Christmas Day</div></div><div class="calendar-day"><div class="day-number">26</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">27</div></div><div class="calendar-day"><div class="day-number">28</div></div><div class="calendar-day"><div class="day-number">29</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">30</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day has-holiday"><div class="day-number">31</div><div class="calendar-holiday">New Year’s Eve</div></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div>
           </div>
         </div>
       </article>
@@ -393,20 +496,6 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     </div>
   </div>
 </section>
-
-<section class="section events" id="events">
-  <div class="container">
-    <div class="events-head">
-      <div><p class="eyebrow">FORGE EVENTS</p><h2>MORE THAN A MEETING.</h2></div>
-      <p>Special gatherings may include worship, teaching, testimonies, physical challenges, prayer, confession, baptism and times of response to God.</p>
-    </div>
-    <div class="event-feature">
-      <div class="event-image"><img src="forge-men-huddle.jpg" alt="Men in a prayer huddle at The Forge"></div>
-      <div class="event-copy"><span>THE FORGE NJ</span><h3>FORGED IN FIRE</h3><p>Gatherings built around repentance, confession, worship, physical endurance, brotherhood and the transforming work of the Holy Spirit.</p><a class="btn primary" href="#contact">ASK ABOUT THE NEXT EVENT</a></div>
-    </div>
-  </div>
-</section>
-
 
 
 <section class="section training-video" id="training">
