@@ -639,96 +639,43 @@ function showContactSuccess() {
 }
 </script>
   <script>
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const heroVideo = document.querySelector('.hero-video');
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
 
-  if (!heroVideo) return;
-
-  /*
-     "y" controls the vertical framing.
-
-     LOWER number = show more of the TOP
-     HIGHER number = show more of the BOTTOM
-  */
-
-  const heroShots = [
-
-    // Guys walking into The Forge
-    { start: 0.00, end: 0.55, y: 35 },
-
-    // Workout / floor shot
-    { start: 0.55, end: 2.20, y: 64 },
-
-    // American flag / gym
-    { start: 2.20, end: 3.67, y: 57 },
-
-    // Hand on equipment
+  const shots = [
+    { start: 0.00, end: 0.55, y: 30 },
+    { start: 0.55, end: 2.20, y: 65 },
+    { start: 2.20, end: 3.67, y: 55 },
     { start: 3.67, end: 4.77, y: 50 },
-
-    // White shirt transition
     { start: 4.77, end: 5.50, y: 50 },
+    { start: 5.50, end: 7.20, y: 38 },
+    { start: 7.20, end: 8.80, y: 30 },
+    { start: 8.80, end: 10.03, y: 35 },
+    { start: 10.03, end: 11.20, y: 45 },
 
-    // Hands / group prayer / huddle
-    { start: 5.50, end: 7.20, y: 40 },
+    /* Nephew teaching — show the TOP of the shot */
+    { start: 11.20, end: 11.90, y: 0 },
 
-    // Worship silhouettes
-    { start: 7.20, end: 8.80, y: 34 },
-
-    // Close prayer shots
-    { start: 8.80, end: 10.03, y: 37 },
-
-    // Table shot
-    { start: 10.03, end: 11.20, y: 48 },
-
-    // YOUR NEPHEW SITTING AND TEACHING
-    // This is deliberately pushed way up so we see his FACE,
-    // not just his hands.
-    { start: 11.20, end: 11.70, y: 18 },
-
-    // Hug / ministry shot
-    { start: 11.70, end: 12.87, y: 30 },
-
-    // Final frame
-    { start: 12.87, end: 13.10, y: 35 }
-
+    /* Hug */
+    { start: 11.90, end: 13.10, y: 25 }
   ];
 
-  let lastPosition = null;
+  setInterval(function () {
 
-  function updateHeroFraming() {
+    const t = video.currentTime;
 
-    const time = heroVideo.currentTime;
-
-    const shot = heroShots.find(function(scene) {
-      return time >= scene.start && time < scene.end;
-    });
-
-    if (shot) {
-
-      const newPosition = 'center ' + shot.y + '%';
-
-      if (newPosition !== lastPosition) {
-        heroVideo.style.objectPosition = newPosition;
-        lastPosition = newPosition;
+    for (const shot of shots) {
+      if (t >= shot.start && t < shot.end) {
+        video.style.objectPosition = "center " + shot.y + "%";
+        break;
       }
     }
 
-    if (!heroVideo.paused && !heroVideo.ended) {
-      requestAnimationFrame(updateHeroFraming);
-    }
-  }
+  }, 50);
 
-  heroVideo.addEventListener('play', function() {
-    requestAnimationFrame(updateHeroFraming);
-  });
-
-  heroVideo.addEventListener('seeked', updateHeroFraming);
-  heroVideo.addEventListener('loadedmetadata', updateHeroFraming);
-
-  updateHeroFraming();
-
-})();
+});
 </script>
 </body>
 </html>
