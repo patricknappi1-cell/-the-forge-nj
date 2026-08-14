@@ -78,7 +78,26 @@
   font-size:16px;
   font-weight:400;
   line-height:1.4;
-}.contact-form input,.contact-form textarea{width:100%;margin-top:8px;padding:15px;background:#151515;border:1px solid #343434;color:#fff;font:inherit}.contact-form input:focus,.contact-form textarea:focus{outline:1px solid var(--red)}
+}.contact-form input,
+.contact-form textarea{
+  width:100%;
+  margin-top:8px;
+  padding:15px;
+  background:#151515;
+  border:1px solid #343434;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  font-weight:400 !important;
+  font-style:normal;
+  letter-spacing:normal;
+  line-height:1.4;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  font-weight:400;
+}
 footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.footer-grid{display:flex;align-items:center;justify-content:center;gap:8px}.footer-grid p{color:#777;font-size:12px}
 @media(max-width:900px){.menu-toggle{display:block}.site-nav{position:absolute;top:82px;left:0;right:0;background:#0a0a0a;padding:24px 20px;display:none;flex-direction:column;align-items:flex-start}.site-nav.open{display:flex}.hero{min-height:850px}.hero-grid,.split,.events-head,.event-feature,.visit-grid,.contact-grid{grid-template-columns:1fr}.hero-grid{gap:35px}.hero-card{max-width:600px}.photo-band{grid-template-columns:1fr;height:auto}.photo-tile{height:320px}.mission-grid,.pillar-grid,.schedule-grid{grid-template-columns:1fr 1fr}.strip-items strong:nth-of-type(even),.strip-items i:nth-of-type(even){display:none}}
 @media(max-width:600px){.container{width:min(100% - 28px,1180px)}.section{padding:75px 0}.hero{padding-top:125px}.hero h1{font-size:67px}.hero-lead{font-size:17px}.hero-card blockquote{font-size:18px}.section h2{font-size:47px}.mission-box{padding-left:22px;border-left-width:6px}.mission-grid,.pillar-grid,.schedule-grid{grid-template-columns:1fr}.event-copy{padding:30px}.event-copy h3{font-size:38px}.footer-grid{flex-direction:column;align-items:flex-start}.conviction p{font-size:54px;letter-spacing:-2px}}
