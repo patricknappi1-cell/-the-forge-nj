@@ -59,7 +59,8 @@
 }
   .section{padding:110px 0}.section h2{font-size:clamp(48px,6vw,82px)}.split{display:grid;grid-template-columns:1fr 1fr;gap:80px}.copy p,.lead{color:#c7c7c7}.lead{font-size:25px;color:#fff}.copy p{font-size:18px}.about{background:#0e0e0e}
 .photo-band{display:grid;grid-template-columns:1.2fr .9fr .9fr;height:500px}.photo-tile{margin:0;position:relative;overflow:hidden}.photo-tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}.photo-tile img{filter:grayscale(100%);transition:.45s}.photo-tile:hover img{filter:grayscale(20%);transform:scale(1.03)}.photo-tile figcaption{position:absolute;z-index:2;left:25px;bottom:20px;font-weight:1000;font-size:24px;letter-spacing:2px;border-left:5px solid var(--red);padding-left:12px}
-.mission{background:#e8e8e8;color:#090909}.mission .eyebrow{color:var(--red)}.mission-box{border-left:10px solid var(--red);padding-left:45px}.mission-statement{font-size:clamp(25px,3vw,42px);font-weight:800;max-width:1050px;line-height:1.2}.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#bfbfbf;margin-top:50px;border:1px solid #bfbfbf}.mission-grid div{background:#f5f5f5;padding:26px}.mission-grid span{color:var(--red);font-weight:900}.mission-grid strong{display:block;margin:14px 0 10px;font-size:15px}.mission-grid p{color:#555;font-size:14px}
+.mission{background:#e8e8e8;color:#090909}.mission .eyebrow{color:var(--red)}.mission-box{border-left:10px solid var(--red);padding-left:45px}.mission-statement{font-size:clamp(25px,3vw,42px);font-weight:800;max-width:1050px;line-height:1.2}.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#bfbfbf;margin-top:50px;border:1px solid #bfbfbf}.mission-grid>.mission-item{background:#f5f5f5;padding:26px;display:flex;flex-direction:column;min-height:420px;color:#111}.mission-grid span{color:var(--red);font-weight:900}.mission-grid strong{display:block;margin:14px 0 10px;font-size:15px;color:#111}.mission-grid>.mission-item>p{color:#555;font-size:14px;margin:0 0 20px}.mission-scripture{margin-top:auto;padding-top:16px;border-top:1px solid #cfcfcf}.mission-scripture p{color:#333;font-size:12px;line-height:1.5;font-style:italic;font-weight:400;margin:0 0 10px}.mission-scripture small{display:block;color:#111;font-size:10px;font-weight:900;letter-spacing:1.3px}"
+
 .pillars{background:#0a0a0a}.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:45px;border-top:1px solid var(--line);border-left:1px solid var(--line)}.pillar-grid article{padding:30px;min-height:240px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.pillar-grid span{color:var(--red);font-size:11px;font-weight:900}.pillar-grid h3{font-size:18px;margin:35px 0 12px}.pillar-grid p{color:var(--grey);font-size:14px}
 .gatherings{background:#151515}.schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:45px}.schedule-card{background:#0c0c0c;padding:30px;border:1px solid #2d2d2d;min-height:270px}.red-top{border-top:5px solid var(--red)}.schedule-label{color:var(--red);font-size:11px;letter-spacing:3px;font-weight:900}.schedule-card h3{font-size:28px;margin:22px 0}.schedule-card strong{font-size:23px}.schedule-card p{color:#aaa}.schedule-note{color:#777;font-size:12px;margin-top:20px}
 .beliefs{background:#090909}.belief-list details{border-bottom:1px solid var(--line);padding:21px 0}.belief-list summary{cursor:pointer;font-weight:900;font-size:18px}.belief-list summary::marker{color:var(--red)}.belief-list p{color:#aaa}
@@ -389,62 +390,57 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
   <figure class="photo-tile"><img src="forge-training-walk.jpg" alt="Men training together at The Forge"><figcaption>DISCIPLINE</figcaption></figure>
 </section>
 
-<div class="mission-grid">
+<section class="section mission" id="mission">
+  <div class="container">
+    <div class="mission-box">
+      <p class="eyebrow">THE MISSION OF THE FORGE</p>
+      <h2>MAKE MATURE DISCIPLES.</h2>
+      <p class="mission-statement">To make mature disciples of Jesus Christ who pursue holiness, walk in obedience, grow in spiritual maturity, become strong biblical leaders, and are equipped to make disciples of others.</p>
 
-  <div class="mission-item">
-    <span>01</span>
-    <strong>KNOW CHRIST</strong>
-    <p>Know Jesus personally and build life on His Word.</p>
+      <div class="mission-grid">
+        <div class="mission-item">
+          <span>01</span>
+          <strong>KNOW CHRIST</strong>
+          <p>Know Jesus personally and build life on His Word.</p>
+          <div class="mission-scripture">
+            <p>“What is more, I consider everything a loss because of the surpassing worth of knowing Christ Jesus my Lord, for whose sake I have lost all things. I consider them garbage, that I may gain Christ.”</p>
+            <small>PHILIPPIANS 3:8 NIV</small>
+          </div>
+        </div>
 
-    <div class="mission-scripture">
-      <p>“What is more, I consider everything a loss because of the surpassing worth of knowing Christ Jesus my Lord, for whose sake I have lost all things. I consider them garbage, that I may gain Christ.”</p>
-      <small>PHILIPPIANS 3:8 NIV</small>
+        <div class="mission-item">
+          <span>02</span>
+          <strong>LIVE HOLY</strong>
+          <p>Turn from sin and pursue a life set apart for God.</p>
+          <div class="mission-scripture">
+            <p>“But just as he who called you is holy, so be holy in all you do; for it is written: ‘Be holy, because I am holy.’”</p>
+            <small>1 PETER 1:15–16 NIV</small>
+          </div>
+        </div>
+
+        <div class="mission-item">
+          <span>03</span>
+          <strong>WALK IN OBEDIENCE</strong>
+          <p>Do what Jesus says, not merely hear it.</p>
+          <div class="mission-scripture">
+            <p>“But Samuel replied: ‘Does the LORD delight in burnt offerings and sacrifices as much as in obeying the LORD? To obey is better than sacrifice, and to heed is better than the fat of rams.’”</p>
+            <small>1 SAMUEL 15:22 NIV</small>
+          </div>
+        </div>
+
+        <div class="mission-item">
+          <span>04</span>
+          <strong>LEAD &amp; MULTIPLY</strong>
+          <p>Become equipped to lead, serve and make disciples.</p>
+          <div class="mission-scripture">
+            <p>“Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.”</p>
+            <small>MATTHEW 28:19–20 NIV</small>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-.mission-item{
-  color:#111 !important;
-}
-
-.mission-item strong{
-  color:#111 !important;
-}
-
-.mission-item > p{
-  color:#555 !important;
-}
-
-.mission-scripture p{
-  color:#555 !important;
-}
-
-.mission-scripture small{
-  color:#111 !important;
-}
-    </div>
-  </div>
-
-  <div class="mission-item">
-    <span>04</span>
-    <strong>LEAD &amp; MULTIPLY</strong>
-    <p>Become equipped to lead, serve and make disciples.</p>
-
-    <div class="mission-scripture">
-      <p>“Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.”</p>
-      <small>MATTHEW 28:19–20 NIV</small>
-    </div>
-  </div>
-
-</div>
-
-  <div class="mission-item">
-    <span>04</span>
-    <strong>LEAD &amp; MULTIPLY</strong>
-    <p>Become equipped to lead, serve and make disciples.</p>
-    <small>MATTHEW 28:19–20</small>
-  </div>
-
-</div>
+</section>
 
 <section class="section pillars">
   <div class="container">
