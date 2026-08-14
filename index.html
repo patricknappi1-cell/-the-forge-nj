@@ -61,7 +61,15 @@
 .photo-band{display:grid;grid-template-columns:1.2fr .9fr .9fr;height:500px}.photo-tile{margin:0;position:relative;overflow:hidden}.photo-tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}.photo-tile img{filter:grayscale(100%);transition:.45s}.photo-tile:hover img{filter:grayscale(20%);transform:scale(1.03)}.photo-tile figcaption{position:absolute;z-index:2;left:25px;bottom:20px;font-weight:1000;font-size:24px;letter-spacing:2px;border-left:5px solid var(--red);padding-left:12px}
 .mission{background:#e8e8e8;color:#090909}.mission .eyebrow{color:var(--red)}.mission-box{border-left:10px solid var(--red);padding-left:45px}.mission-statement{font-size:clamp(25px,3vw,42px);font-weight:800;max-width:1050px;line-height:1.2}.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#bfbfbf;margin-top:50px;border:1px solid #bfbfbf}.mission-grid>.mission-item{background:#f5f5f5;padding:26px;display:flex;flex-direction:column;min-height:420px;color:#111}.mission-grid span{color:var(--red);font-weight:900}.mission-grid strong{display:block;margin:14px 0 10px;font-size:15px;color:#111}.mission-grid>.mission-item>p{color:#555;font-size:14px;margin:0 0 20px}.mission-scripture{margin-top:auto;padding-top:16px;border-top:1px solid #cfcfcf}.mission-scripture p{color:#333;font-size:12px;line-height:1.5;font-style:italic;font-weight:400;margin:0 0 10px}.mission-scripture small{display:block;color:#111;font-size:10px;font-weight:900;letter-spacing:1.3px}"
 
-.pillars{background:#0a0a0a}.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:45px;border-top:1px solid var(--line);border-left:1px solid var(--line)}.pillar-grid article{padding:30px;min-height:240px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.pillar-grid span{color:var(--red);font-size:11px;font-weight:900}.pillar-grid h3{font-size:18px;margin:35px 0 12px}.pillar-grid p{color:var(--grey);font-size:14px}
+.pillars{background:#0a0a0a}
+.pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:45px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.pillar-grid article{padding:30px;min-height:350px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column}
+.pillar-grid span{color:var(--red);font-size:11px;font-weight:900}
+.pillar-grid h3{font-size:18px;margin:35px 0 12px}
+.pillar-grid article>p{color:var(--grey);font-size:14px;margin:0 0 22px}
+.pillar-scripture{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.pillar-scripture p{color:#cfcfcf;font-size:12px;line-height:1.5;font-style:italic;font-weight:400;margin:0 0 9px}
+.pillar-scripture small{display:block;color:var(--red);font-size:10px;font-weight:900;letter-spacing:1.2px}
 .gatherings{background:#151515}.schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:45px}.schedule-card{background:#0c0c0c;padding:30px;border:1px solid #2d2d2d;min-height:270px}.red-top{border-top:5px solid var(--red)}.schedule-label{color:var(--red);font-size:11px;letter-spacing:3px;font-weight:900}.schedule-card h3{font-size:28px;margin:22px 0}.schedule-card strong{font-size:23px}.schedule-card p{color:#aaa}.schedule-note{color:#777;font-size:12px;margin-top:20px}
 .beliefs{background:#090909}.belief-list details{border-bottom:1px solid var(--line);padding:21px 0}.belief-list summary{cursor:pointer;font-weight:900;font-size:18px}.belief-list summary::marker{color:var(--red)}.belief-list p{color:#aaa}
 .events{background:#111}.events-head{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}.events-head>p{color:#aaa;font-size:18px}.event-feature{display:grid;grid-template-columns:1.25fr .75fr;margin-top:45px;background:#070707;border:1px solid var(--line)}.event-image{min-height:430px}.event-image img{filter:grayscale(100%)}.event-copy{padding:50px;display:flex;flex-direction:column;justify-content:center}.event-copy>span{color:var(--red);font-weight:900;letter-spacing:3px;font-size:11px}.event-copy h3{font-size:48px;line-height:.9;margin:18px 0}.event-copy p{color:#aaa;margin-bottom:28px}
@@ -447,13 +455,77 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     <p class="eyebrow">THE CULTURE</p>
     <h2>SEVEN PILLARS OF THE FORGE</h2>
     <div class="pillar-grid">
-      <article><span>01</span><h3>PRAYER</h3><p>Seeking God, interceding for one another and depending on the Holy Spirit.</p></article>
-      <article><span>02</span><h3>SCRIPTURE</h3><p>Knowing the Word, submitting to it and building life on truth.</p></article>
-      <article><span>03</span><h3>WORSHIP</h3><p>Giving Jesus the honor He deserves with our words and our lives.</p></article>
-      <article><span>04</span><h3>MINISTRY</h3><p>Using what God has given us to serve others and advance His Kingdom.</p></article>
-      <article><span>05</span><h3>BROTHERHOOD</h3><p>Carrying burdens, confessing sin, sharpening one another and refusing isolation.</p></article>
-      <article><span>06</span><h3>LEADERSHIP</h3><p>Becoming servants who lead with courage, integrity and biblical conviction.</p></article>
-      <article><span>07</span><h3>PHYSICAL TRAINING</h3><p>Practicing discipline, perseverance and stewardship of the body.</p></article>
+
+      <article>
+        <span>01</span>
+        <h3>PRAYER</h3>
+        <p>Seeking God, interceding for one another and depending on the Holy Spirit.</p>
+        <div class="pillar-scripture">
+          <p>“Pray continually.”</p>
+          <small>1 THESSALONIANS 5:17 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>SCRIPTURE</h3>
+        <p>Knowing the Word, submitting to it and building life on truth.</p>
+        <div class="pillar-scripture">
+          <p>“All Scripture is God-breathed and is useful for teaching…”</p>
+          <small>2 TIMOTHY 3:16–17 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>WORSHIP</h3>
+        <p>Giving Jesus the honor He deserves with our words and our lives.</p>
+        <div class="pillar-scripture">
+          <p>“Offer your bodies as a living sacrifice, holy and pleasing to God…”</p>
+          <small>ROMANS 12:1 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>04</span>
+        <h3>MINISTRY</h3>
+        <p>Using what God has given us to serve others and advance His Kingdom.</p>
+        <div class="pillar-scripture">
+          <p>“Use whatever gift you have received to serve others…”</p>
+          <small>1 PETER 4:10 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>05</span>
+        <h3>BROTHERHOOD</h3>
+        <p>Carrying burdens, confessing sin, sharpening one another and refusing isolation.</p>
+        <div class="pillar-scripture">
+          <p>“Carry each other’s burdens, and in this way you will fulfill the law of Christ.”</p>
+          <small>GALATIANS 6:2 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>06</span>
+        <h3>LEADERSHIP</h3>
+        <p>Becoming servants who lead with courage, integrity and biblical conviction.</p>
+        <div class="pillar-scripture">
+          <p>“Whoever wants to become great among you must be your servant…”</p>
+          <small>MARK 10:43–45 NIV</small>
+        </div>
+      </article>
+
+      <article>
+        <span>07</span>
+        <h3>PHYSICAL TRAINING</h3>
+        <p>Practicing discipline, perseverance and stewardship of the body.</p>
+        <div class="pillar-scripture">
+          <p>“Everyone who competes in the games goes into strict training.”</p>
+          <small>1 CORINTHIANS 9:25 NIV</small>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -749,5 +821,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 50);
 
 });
-  </body>
+</script>
+</body>
 </html>
