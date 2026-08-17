@@ -712,11 +712,8 @@ const btn=document.querySelector('.menu-toggle');const nav=document.querySelecto
   });
 
   window.addEventListener('message', function (event) {
-    const allowedOrigins = [
-      'https://script.google.com',
-      'https://script.googleusercontent.com'
-    ];
-    if (!allowedOrigins.includes(event.origin)) return;
+   
+    
     if (!event.data || event.data.source !== 'forge-contact') return;
 
     clearTimeout(responseTimer);
