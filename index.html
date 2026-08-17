@@ -152,106 +152,17 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .month-art{
   min-height:330px;
   display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  justify-content:flex-start;
+  align-items:flex-start;
+  justify-content:center;
   overflow:hidden;
   background:#050505;
 }
-.month-picture{
-  position:relative;
-  width:100%;
-  flex:0 0 auto;
-  overflow:hidden;
-  background:#050505;
-  border-bottom:1px solid #262626;
-}
-.month-picture img{
-  display:block;
+.month-art img{
   width:100%;
   height:auto;
   object-fit:contain;
-}
-/* These covers hide only the old lettering baked into the original JPGs.
-   The artwork itself remains the original image and is not cropped. */
-.month-cover{
-  position:absolute;
-  left:0;
-  z-index:1;
-  pointer-events:none;
-  width:84%;
-  background:linear-gradient(90deg,#050505 0%,#050505 66%,rgba(5,5,5,.94) 78%,rgba(5,5,5,0) 100%);
-}
-.month-cover.title-cover{top:26%;height:31%}
-.month-cover.verse-cover{top:55%;height:31%;width:88%}
-.month-picture.september .title-cover{top:27%;height:30%}
-.month-picture.september .verse-cover{top:58%;height:29%}
-.month-picture.october .title-cover{top:28%;height:30%}
-.month-picture.october .verse-cover{top:58%;height:31%}
-.month-picture.november .title-cover{top:24%;height:33%;width:72%}
-.month-picture.november .verse-cover{top:58%;height:30%;width:77%}
-.month-picture.december .title-cover{top:28%;height:30%;width:73%}
-.month-picture.december .verse-cover{top:58%;height:30%;width:82%}
-
-.month-title{
-  position:absolute;
-  z-index:2;
-  top:14px;
-  left:14px;
-  line-height:.92;
-  text-transform:uppercase;
-  text-shadow:0 2px 5px rgba(0,0,0,.9);
-}
-.month-title .name{
-  display:block;
-  color:#fff;
-  font-size:30px;
-  font-weight:1000;
-  letter-spacing:-1.2px;
-}
-.month-title .year{
-  display:inline-block;
-  margin-top:8px;
-  color:var(--red);
-  font-size:21px;
-  font-weight:1000;
-  letter-spacing:1px;
-}
-.month-title .red-line{
-  display:inline-block;
-  width:54px;
-  height:3px;
-  margin:0 0 6px 9px;
-  background:var(--red);
-}
-/* November keeps its original Give Thanks script visible above the month. */
-.month-picture.november .month-title{top:48px}
-
-.month-scripture{
-  flex:1;
-  min-height:135px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:18px 20px 22px;
-  text-align:left;
-  background:#050505;
-}
-.month-scripture p{
-  margin:0;
-  color:#f0f0f0;
-  font-size:15px;
-  line-height:1.4;
-  font-style:italic;
-}
-.month-scripture strong{
-  display:block;
-  margin-top:8px;
-  color:var(--red);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
+  flex:0 0 auto;
+  border-bottom:1px solid #262626;
 }
 .month-calendar-wrap{min-width:0;overflow-x:auto}
 .month-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));min-width:760px;height:100%;background:#121212}
@@ -284,14 +195,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 @media(max-width:900px){
   .calendar-month{grid-template-columns:1fr}
   .month-art{height:auto;min-height:0;background:#050505}
-  .month-title{top:11px;left:11px}
-  .month-title .name{font-size:24px}
-  .month-title .year{font-size:17px;margin-top:5px}
-  .month-title .red-line{width:40px;height:2px;margin-bottom:5px}
-  .month-picture.november .month-title{top:36px}
-  .month-scripture{min-height:108px;padding:15px 16px 18px}
-  .month-scripture p{font-size:13px}
-  .month-scripture strong{font-size:10px}
+  .month-art img{width:100%;height:auto}
 }
 @media(max-width:600px){
   .events-calendar{padding-top:70px}
@@ -299,7 +203,6 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
   .calendar-heading>p:last-child{font-size:16px}
 
   .month-art{height:auto}
-  .month-scripture{min-height:98px}
   .month-calendar-wrap{
     position:relative;
     width:100%;
@@ -420,7 +323,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       <p class="hero-lead">Not spectators. Not casual Christianity. A community pursuing Jesus Christ through truth, prayer, worship, discipline, brotherhood, repentance and obedience.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#visit">COME TO THE FORGE</a>
-        <a class="btn secondary" href="#mission">OUR MISSION</a>
+        <a class="btn secondary" href="testimony-night.html">SIGN UP FOR NEXT EVENT</a>
       </div>
     </div>
     <aside class="hero-card">
@@ -546,13 +449,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       
       <article class="calendar-month">
         <div class="month-art">
-          <div class="month-picture august">
-            <img src="events-august-2026.jpg" alt="August 2026 seasonal artwork">
-            <span class="month-cover title-cover"></span>
-            <span class="month-cover verse-cover"></span>
-            <div class="month-title"><span class="name">AUGUST</span><span class="year">2026</span><span class="red-line"></span></div>
-          </div>
-          <div class="month-scripture"><p>“The Lord is my strength and my shield.”</p><strong>Psalm 28:7</strong></div>
+          <img src="events-august-2026.jpg" alt="August 2026 seasonal artwork">
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="August 2026 calendar">
@@ -563,13 +460,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <div class="month-picture september">
-            <img src="events-september-2026.jpg" alt="September 2026 seasonal artwork">
-            <span class="month-cover title-cover"></span>
-            <span class="month-cover verse-cover"></span>
-            <div class="month-title"><span class="name">SEPTEMBER</span><span class="year">2026</span><span class="red-line"></span></div>
-          </div>
-          <div class="month-scripture"><p>“Let us not grow weary in doing good.”</p><strong>Galatians 6:9</strong></div>
+          <img src="events-september-2026.jpg" alt="September 2026 seasonal artwork">
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="September 2026 calendar">
@@ -580,30 +471,18 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <div class="month-picture october">
-            <img src="events-october-2026.jpg" alt="October 2026 seasonal artwork">
-            <span class="month-cover title-cover"></span>
-            <span class="month-cover verse-cover"></span>
-            <div class="month-title"><span class="name">OCTOBER</span><span class="year">2026</span><span class="red-line"></span></div>
-          </div>
-          <div class="month-scripture"><p>“The harvest is plentiful, but the workers are few.”</p><strong>Matthew 9:37</strong></div>
+          <img src="events-october-2026.jpg" alt="October 2026 seasonal artwork">
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="October 2026 calendar">
             <div class="calendar-dow">SUN</div><div class="calendar-dow">MON</div><div class="calendar-dow">TUE</div><div class="calendar-dow">WED</div><div class="calendar-dow">THU</div><div class="calendar-dow">FRI</div><div class="calendar-dow">SAT</div>
-            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">25</div></div><div class="calendar-day"><div class="day-number">26</div></div><div class="calendar-day"><div class="day-number">27</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day has-special"><div class="day-number">31</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div><div class="calendar-event special-event"><strong>Fall Fest</strong><span>4:30 PM</span></div></div>
+            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">25</div></div><div class="calendar-day"><div class="day-number">26</div></div><div class="calendar-day"><div class="day-number">27</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day"><div class="day-number">31</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div>
           </div>
         </div>
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <div class="month-picture november">
-            <img src="events-november-2026.jpg" alt="November 2026 seasonal artwork">
-            <span class="month-cover title-cover"></span>
-            <span class="month-cover verse-cover"></span>
-            <div class="month-title"><span class="name">NOVEMBER</span><span class="year">2026</span><span class="red-line"></span></div>
-          </div>
-          <div class="month-scripture"><p>“Give thanks to the Lord, for he is good.”</p><strong>Psalm 107:1</strong></div>
+          <img src="events-november-2026.jpg" alt="November 2026 seasonal artwork">
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="November 2026 calendar">
@@ -614,13 +493,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       </article>
       <article class="calendar-month">
         <div class="month-art">
-          <div class="month-picture december">
-            <img src="events-december-2026.jpg" alt="December 2026 seasonal artwork">
-            <span class="month-cover title-cover"></span>
-            <span class="month-cover verse-cover"></span>
-            <div class="month-title"><span class="name">DECEMBER</span><span class="year">2026</span><span class="red-line"></span></div>
-          </div>
-          <div class="month-scripture"><p>“For unto us a child is born, unto us a son is given.”</p><strong>Isaiah 9:6</strong></div>
+          <img src="events-december-2026.jpg" alt="December 2026 seasonal artwork">
         </div>
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="December 2026 calendar">
