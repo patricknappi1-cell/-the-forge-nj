@@ -287,25 +287,15 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     letter-spacing:0;
   }
 }
-  .visit-grid{
-  align-items:stretch;
-}
 
-.visit-copy{
-  display:flex;
-  flex-direction:column;
-}
-
-.visit-copy h2{
-  margin-top:0;
-}
-
-.visit-contact-btn{
-  margin-top:auto;
-  width:100%;
-  box-sizing:border-box;
-}
+/* Contact form anti-bot protection */
+.hp-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+.turnstile-wrap{margin:4px 0 2px}
+.contact-status{display:none;margin-top:2px;padding:12px 14px;border:1px solid #553333;background:#1a0e0e;color:#ffd6d6;font-size:14px;line-height:1.45}
+.contact-status.show{display:block}
+.contact-form button[disabled]{opacity:.6;cursor:not-allowed}
 </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <header class="site-header">
@@ -494,7 +484,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
         <div class="month-calendar-wrap">
           <div class="month-calendar" aria-label="October 2026 calendar">
             <div class="calendar-dow">SUN</div><div class="calendar-dow">MON</div><div class="calendar-dow">TUE</div><div class="calendar-dow">WED</div><div class="calendar-dow">THU</div><div class="calendar-dow">FRI</div><div class="calendar-dow">SAT</div>
-            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">25</div></div><div class="calendar-day"><div class="day-number">26</div></div><div class="calendar-day"><div class="day-number">27</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day"><div class="day-number">31</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div>
+            <div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day empty" aria-hidden="true"></div><div class="calendar-day"><div class="day-number">1</div></div><div class="calendar-day"><div class="day-number">2</div></div><div class="calendar-day"><div class="day-number">3</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">4</div></div><div class="calendar-day"><div class="day-number">5</div></div><div class="calendar-day"><div class="day-number">6</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">7</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">8</div></div><div class="calendar-day"><div class="day-number">9</div></div><div class="calendar-day"><div class="day-number">10</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">11</div></div><div class="calendar-day"><div class="day-number">12</div></div><div class="calendar-day"><div class="day-number">13</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">14</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">15</div></div><div class="calendar-day"><div class="day-number">16</div></div><div class="calendar-day"><div class="day-number">17</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">18</div></div><div class="calendar-day"><div class="day-number">19</div></div><div class="calendar-day"><div class="day-number">20</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">21</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">22</div></div><div class="calendar-day"><div class="day-number">23</div></div><div class="calendar-day"><div class="day-number">24</div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div><div class="calendar-day"><div class="day-number">25</div></div><div class="calendar-day"><div class="day-number">26</div></div><div class="calendar-day"><div class="day-number">27</div><div class="calendar-event"><strong>Men’s Worship & Prayer</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">28</div><div class="calendar-event"><strong>Women’s Bible Study</strong><span>7:30 PM</span></div></div><div class="calendar-day"><div class="day-number">29</div></div><div class="calendar-day"><div class="day-number">30</div></div><div class="calendar-day has-special"><div class="day-number">31</div><div class="calendar-event special-event"><strong>Fall Festival</strong><span>4:00–7:30 PM</span><a class="calendar-more" href="fall-festival.html">MORE INFO</a></div><div class="calendar-event"><strong>Men’s Workout</strong><span>5:30 AM</span></div><div class="calendar-event"><strong>Bible Study</strong><span>6:30 AM</span></div></div>
           </div>
         </div>
       </article>
@@ -574,58 +564,17 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 </section>
 
 <section class="section visit" id="visit">
-  <div class="container">
-
-    <p class="eyebrow">COME TO THE FORGE</p>
-
-    <div class="visit-grid">
-
-      <div class="visit-copy">
-        <h2>YOU DON'T HAVE TO HAVE IT ALL TOGETHER.</h2>
-
-        <p class="lead">
-          Come ready to seek God, hear truth, work hard, be sharpened
-          and build real biblical community.
-        </p>
-
-        <a class="btn primary visit-contact-btn" href="#contact">
-          CONTACT US
-        </a>
-      </div>
-
-      <div class="visit-card">
-        <span>THE FORGE</span>
-
-        <h3>
-          1 Evans Street<br>
-          Fairfield, New Jersey<br>
-          07004
-        </h3>
-
-        <div style="margin-top:18px;">
-          <iframe
-            src="https://www.google.com/maps?q=1+Evans+Street,+Fairfield,+NJ+07004&output=embed"
-            width="100%"
-            height="190"
-            style="border:0; display:block;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-
-        <a class="btn primary"
-           href="https://www.google.com/maps/search/?api=1&query=1+Evans+Street+Fairfield+NJ+07004"
-           target="_blank"
-           rel="noopener noreferrer"
-           style="margin-top:18px;">
-          OPEN IN GOOGLE MAPS
-        </a>
-      </div>
-
+  <div class="container visit-grid">
+    <div>
+      <p class="eyebrow">COME TO THE FORGE</p>
+      <h2>YOU DON'T HAVE TO HAVE IT ALL TOGETHER.</h2>
+      <p class="lead">Come ready to seek God, hear truth, work hard, be sharpened and build real biblical community.</p>
     </div>
-  </div>
-</section>
+    <div class="visit-card">
+      <span>THE FORGE NJ</span>
+      <h3>1 Evans ST - FAIRFIELD, NEW JERSEY</h3>
+      <p></p>
+      <a class="btn primary" href="#contact">CONTACT US</a>
     </div>
   </div>
 </section>
@@ -643,23 +592,38 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     
     </div>
 
-<form class="contact-form" action="https://script.google.com/macros/s/AKfycbwr1AzIpv9ECG0K2A24kUzOWHuh2BeN8oP4K8yzcKJ2qP_H7HfEXOjfpRiIkoUl8q8x/exec" method="POST" target="hidden_iframe" onsubmit="showContactSuccess()">
+<form class="contact-form" action="https://script.google.com/macros/s/AKfycbwr1AzIpv9ECG0K2A24kUzOWHuh2BeN8oP4K8yzcKJ2qP_H7HfEXOjfpRiIkoUl8q8x/exec" method="POST" target="hidden_iframe" id="forge-contact-form">
 
 <label>Name
-  <input type="text" name="name" placeholder="Your name" required>
+  <input type="text" name="name" placeholder="Your name" maxlength="100" autocomplete="name" required>
 </label>
 
-  <label>Email
-    <input type="email" name="email" placeholder="you@email.com" required>
+<label>Email
+  <input type="email" name="email" placeholder="you@email.com" maxlength="254" autocomplete="email" required>
+</label>
+
+<label>Message
+  <textarea name="message" rows="5" placeholder="How can we help?" maxlength="4000" required></textarea>
+</label>
+
+<!-- Honeypot: real visitors never see or fill this field. -->
+<div class="hp-field" aria-hidden="true">
+  <label>Company
+    <input type="text" name="company" tabindex="-1" autocomplete="off">
   </label>
+</div>
 
-  <label>Message
-    <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
-  </label>
+<input type="hidden" name="form_started_at" id="form_started_at" value="">
+<input type="hidden" name="_subject" value="New message from The Forge NJ website">
 
-  <input type="hidden" name="_subject" value="New message from The Forge NJ website">
+<div class="turnstile-wrap">
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAAESzVJRGPSnpM9LM" data-action="contact" data-theme="dark"></div>
+</div>
+  <noscript><p class="contact-status show">JavaScript is required to submit this form securely.</p></noscript>
 
-  <button class="btn primary" type="submit">SEND MESSAGE</button>
+<div id="contact-error" class="contact-status" role="alert" aria-live="polite"></div>
+
+<button class="btn primary" type="submit" id="contact-submit">SEND MESSAGE</button>
 </form>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
@@ -685,16 +649,90 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 const btn=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-nav');btn?.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open)});document.querySelectorAll('.site-nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();
 </script>
   <script>
-function showContactSuccess() {
-  setTimeout(function() {
-    const form = document.querySelector('.contact-form');
-    const success = document.getElementById('contact-success');
+(function () {
+  const form = document.getElementById('forge-contact-form');
+  const submitButton = document.getElementById('contact-submit');
+  const errorBox = document.getElementById('contact-error');
+  const successBox = document.getElementById('contact-success');
+  const startedAt = document.getElementById('form_started_at');
+  let responseTimer;
 
-    form.reset();
-    success.style.display = 'block';
-    form.replaceWith(success);
-  }, 500);
-}
+  if (!form) return;
+
+  function resetStartTime() {
+    startedAt.value = String(Date.now());
+  }
+
+  function showError(message) {
+    clearTimeout(responseTimer);
+    errorBox.textContent = message;
+    errorBox.classList.add('show');
+    submitButton.disabled = false;
+    submitButton.textContent = 'SEND MESSAGE';
+  }
+
+  function clearError() {
+    errorBox.textContent = '';
+    errorBox.classList.remove('show');
+  }
+
+  resetStartTime();
+
+  form.addEventListener('submit', function (event) {
+    clearError();
+
+    const honeypot = form.elements.company && form.elements.company.value.trim();
+    if (honeypot) {
+      event.preventDefault();
+      return;
+    }
+
+    const elapsed = Date.now() - Number(startedAt.value || 0);
+    if (!startedAt.value || elapsed < 2500) {
+      event.preventDefault();
+      showError('Please wait a moment and try again.');
+      return;
+    }
+
+    const tokenField = form.querySelector('input[name="cf-turnstile-response"]');
+    if (!tokenField || !tokenField.value) {
+      event.preventDefault();
+      showError('Please complete the security check before sending your message.');
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'SENDING...';
+
+    responseTimer = setTimeout(function () {
+      showError('We could not confirm the submission. Please refresh the page and try again.');
+      if (window.turnstile) window.turnstile.reset();
+      resetStartTime();
+    }, 15000);
+  });
+
+  window.addEventListener('message', function (event) {
+    const allowedOrigins = [
+      'https://script.google.com',
+      'https://script.googleusercontent.com'
+    ];
+    if (!allowedOrigins.includes(event.origin)) return;
+    if (!event.data || event.data.source !== 'forge-contact') return;
+
+    clearTimeout(responseTimer);
+
+    if (event.data.ok) {
+      form.reset();
+      if (window.turnstile) window.turnstile.reset();
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+    } else {
+      showError(event.data.message || 'We could not verify your submission. Please try again.');
+      if (window.turnstile) window.turnstile.reset();
+      resetStartTime();
+    }
+  });
+})();
 </script>
 </body>
 </html>
