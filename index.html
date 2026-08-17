@@ -287,6 +287,24 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     letter-spacing:0;
   }
 }
+  .visit-grid{
+  align-items:stretch;
+}
+
+.visit-copy{
+  display:flex;
+  flex-direction:column;
+}
+
+.visit-copy h2{
+  margin-top:0;
+}
+
+.visit-contact-btn{
+  margin-top:auto;
+  width:100%;
+  box-sizing:border-box;
+}
 </style>
 </head>
 <body>
@@ -562,35 +580,59 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
       <h2>YOU DON'T HAVE TO HAVE IT ALL TOGETHER.</h2>
       <p class="lead">Come ready to seek God, hear truth, work hard, be sharpened and build real biblical community.</p>
     </div>
-<div class="visit-card">
-  <span>THE FORGE</span>
+<section class="section visit" id="visit">
+  <div class="container">
 
-  <h3>
-    1 Evans Street<br>
-    Fairfield, New Jersey<br>
-    07004
-  </h3>
+    <p class="eyebrow">COME TO THE FORGE</p>
 
-  <div style="margin-top:18px;">
-    <iframe
-      src="https://www.google.com/maps?q=1+Evans+Street,+Fairfield,+NJ+07004&output=embed"
-      width="100%"
-      height="190"
-      style="border:0; display:block;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <div class="visit-grid">
+
+      <div class="visit-copy">
+        <h2>YOU DON'T HAVE TO HAVE IT ALL TOGETHER.</h2>
+
+        <p class="lead">
+          Come ready to seek God, hear truth, work hard, be sharpened
+          and build real biblical community.
+        </p>
+
+        <a class="btn primary visit-contact-btn" href="#contact">
+          CONTACT US
+        </a>
+      </div>
+
+      <div class="visit-card">
+        <span>THE FORGE</span>
+
+        <h3>
+          1 Evans Street<br>
+          Fairfield, New Jersey<br>
+          07004
+        </h3>
+
+        <div style="margin-top:18px;">
+          <iframe
+            src="https://www.google.com/maps?q=1+Evans+Street,+Fairfield,+NJ+07004&output=embed"
+            width="100%"
+            height="190"
+            style="border:0; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <a class="btn primary"
+           href="https://www.google.com/maps/search/?api=1&query=1+Evans+Street+Fairfield+NJ+07004"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="margin-top:18px;">
+          OPEN IN GOOGLE MAPS
+        </a>
+      </div>
+
+    </div>
   </div>
-
-  <a class="btn primary"
-     href="https://www.google.com/maps/search/?api=1&query=1+Evans+Street+Fairfield+NJ+07004"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="margin-top:18px;">
-    OPEN IN GOOGLE MAPS
-  </a>
-</div>
+</section>
       <a class="btn primary" href="#contact">CONTACT US</a>
     </div>
   </div>
