@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fall Festival 2026 | The Forge NJ</title>
+  <meta name="description" content="The Forge NJ Fall Festival — a free, family-friendly, faith-centered celebration on Saturday, October 31, 2026 from 4:00 PM to 7:30 PM at 1 Evans Street, Fairfield, NJ.">
+  <meta name="theme-color" content="#090909">
+  <link rel="icon" type="image/png" href="/favacon.png">
+
+  <meta property="og:title" content="The Forge NJ Fall Festival 2026">
+  <meta property="og:description" content="Free admission • Bounce houses • Music • Food • Family fun • October 31, 2026 • 4:00–7:30 PM • Fairfield, NJ">
+  <meta property="og:image" content="https://www.theforgenj.com/fall-festival-2026.png">
+  <meta property="og:image:secure_url" content="https://www.theforgenj.com/fall-festival-2026.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:url" content="https://www.theforgenj.com/fall-festival.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{--red:#d71920;--red-dark:#a90f15;--black:#080808;--charcoal:#121212;--grey:#a9a9a9;--white:#fff;--line:#2a2a2a;--orange:#e88a20}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--black);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    .site-header{position:sticky;z-index:50;top:0;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-wrap{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:64px;height:64px;object-fit:contain}
+    .brand-text{display:flex;flex-direction:column;line-height:1}
+    .brand-text strong{font-size:19px;letter-spacing:2px}
+    .brand-text small{font-size:9px;letter-spacing:4px;color:var(--grey);margin-top:6px}
+    .back-link{border:1px solid var(--red);padding:12px 16px;font-size:12px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase}
+    .back-link:hover{background:var(--red)}
+
+    .event-page{padding:70px 0 85px;background:radial-gradient(circle at 75% 20%,rgba(232,138,32,.11),transparent 30%),#0b0b0b}
+    .breadcrumb{margin:0 0 28px;color:#8d8d8d;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .breadcrumb a:hover{color:var(--red)}
+    .event-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+    .flyer-wrap{position:sticky;top:110px;background:#111;border:1px solid #343434;padding:10px;box-shadow:0 22px 60px rgba(0,0,0,.45)}
+    .flyer-wrap img{width:100%;height:auto}
+    .eyebrow{color:var(--orange);font-size:12px;letter-spacing:3.5px;font-weight:900;margin:4px 0 16px}
+    h1{margin:0;font-size:clamp(58px,8vw,112px);font-weight:1000;line-height:.82;letter-spacing:-4px;text-transform:uppercase}
+    h1 span{color:var(--orange)}
+    .tagline{margin:27px 0 22px;font-size:clamp(19px,2.2vw,28px);font-weight:900;line-height:1.15;text-transform:uppercase}
+    .lead{color:#c8c8c8;font-size:18px;max-width:690px}
+    .free{display:inline-block;margin:14px 0 6px;background:var(--red);padding:9px 13px;font-weight:1000;letter-spacing:1.4px;text-transform:uppercase}
+
+    .details{margin:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .detail{display:grid;grid-template-columns:48px 1fr;gap:15px;padding:20px 0;border-bottom:1px solid var(--line)}
+    .detail:last-child{border-bottom:0}
+    .icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #4a4a4a;background:#101010;font-size:22px}
+    .detail small{display:block;color:var(--orange);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+    .detail strong{display:block;font-size:18px}
+    .detail span{display:block;color:#aaa;margin-top:2px}
+
+    .highlights{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+    .highlight{background:#111;border:1px solid #2b2b2b;padding:19px}
+    .highlight strong{display:block;color:#fff;text-transform:uppercase;font-size:14px;letter-spacing:.8px;margin-bottom:6px}
+    .highlight span{color:#aaa;font-size:14px}
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:14px 20px;border:1px solid;font-weight:900;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;font-family:inherit}
+    .primary{background:var(--red);border-color:var(--red);color:#fff}
+    .primary:hover{background:var(--red-dark)}
+    .secondary{background:transparent;border-color:#666;color:#fff}
+    .secondary:hover{border-color:var(--orange);color:var(--orange)}
+
+    .season-strip{background:var(--orange);color:#0a0a0a;padding:18px 0;text-align:center;font-weight:1000;letter-spacing:2px;text-transform:uppercase}
+    footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}
+    .footer-grid{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+    .footer-grid p{color:#777;font-size:12px;margin:0 4px}
+
+    @media(max-width:900px){
+      .event-grid{grid-template-columns:1fr;gap:40px}
+      .flyer-wrap{position:static;max-width:640px;margin:auto}
+    }
+    @media(max-width:600px){
+      .container{width:min(100% - 28px,1180px)}
+      .nav-wrap{min-height:74px}.brand-logo{width:52px;height:52px}.brand-text strong{font-size:16px}.brand-text small{letter-spacing:2.5px}
+      .back-link{padding:10px 11px;font-size:10px}
+      .event-page{padding:40px 0 60px}
+      h1{font-size:57px;letter-spacing:-2px}
+      .highlights{grid-template-columns:1fr}
+      .actions{display:grid}.btn{width:100%}
+      .season-strip{font-size:12px;padding:15px 18px}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html#top" aria-label="The Forge NJ home">
+      <img class="brand-logo" src="forge-logo.png" alt="The Forge logo">
+      <div class="brand-text"><strong>THE FORGE</strong><small>NEW JERSEY</small></div>
+    </a>
+    <a class="back-link" href="index.html#events">← Back to The Forge</a>
+  </div>
+</header>
+
+<main class="event-page">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#events">Events</a> / Fall Festival</p>
+
+    <div class="event-grid">
+      <div class="flyer-wrap">
+        <img src="fall-festival-2026.png" alt="The Forge NJ Fall Festival flyer for October 31, 2026">
+      </div>
+
+      <section class="event-copy">
+        <p class="eyebrow">FAITH • FAMILY • COMMUNITY • FUN</p>
+        <h1>Fall<br><span>Festival.</span></h1>
+        <p class="tagline">A faith-centered alternative celebration for the whole family.</p>
+        <p class="lead">Join The Forge NJ for a positive, wholesome evening where families can enjoy all the fun of the fall season together. Come for the activities, food, music and community — and bring the kids!</p>
+        <span class="free">Free Admission • Everyone Welcome</span>
+
+        <div class="details">
+          <div class="detail">
+            <div class="icon" aria-hidden="true">📅</div>
+            <div><small>Date</small><strong>Saturday, October 31, 2026</strong></div>
+          </div>
+          <div class="detail">
+            <div class="icon" aria-hidden="true">🕓</div>
+            <div><small>Time</small><strong>4:00 PM – 7:30 PM</strong></div>
+          </div>
+          <div class="detail">
+            <div class="icon" aria-hidden="true">📍</div>
+            <div><small>Location</small><strong>The Forge NJ</strong><span>1 Evans Street, Fairfield, NJ</span></div>
+          </div>
+        </div>
+
+        <div class="highlights" aria-label="Festival highlights">
+          <div class="highlight"><strong>🏰 Bounce Houses</strong><span>Plenty of active fun for the kids.</span></div>
+          <div class="highlight"><strong>🎵 Music</strong><span>A lively fall atmosphere for the whole family.</span></div>
+          <div class="highlight"><strong>🍔 Food</strong><span>Come hungry and enjoy the evening together.</span></div>
+          <div class="highlight"><strong>👨‍👩‍👧‍👦 Family Fun</strong><span>A wholesome, faith-honoring community celebration.</span></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" type="button" id="shareEvent">Share This Event</button>
+          <a class="btn secondary" href="index.html#events">Back to The Forge</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<div class="season-strip">Positive. Wholesome. Faith-Honoring. Full of Seasonal Fun.</div>
+
+<footer>
+  <div class="container footer-grid">
+    <a class="brand" href="index.html#top">
+      <img class="brand-logo" src="forge-logo.png" alt="The Forge logo">
+      <div class="brand-text"><strong>THE FORGE</strong><small>NEW JERSEY</small></div>
+    </a>
+    <p>Strong body. Clear mind. Unshakable spirit.</p>
+    <p>© <span id="year"></span> The Forge NJ</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const shareButton = document.getElementById('shareEvent');
+  shareButton.addEventListener('click', async () => {
+    const shareData = {
+      title: 'The Forge NJ Fall Festival 2026',
+      text: 'Join us October 31 from 4:00–7:30 PM at The Forge NJ in Fairfield. Free admission, bounce houses, music, food and family fun!',
+      url: window.location.href
+    };
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(window.location.href);
+        shareButton.textContent = 'Link Copied!';
+        setTimeout(() => shareButton.textContent = 'Share This Event', 1800);
+      }
+    } catch (e) {}
+  });
+</script>
+</body>
+</html>
