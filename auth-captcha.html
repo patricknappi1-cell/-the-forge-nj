@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Security Check | The Forge</title>
+  <meta name="theme-color" content="#090909">
+  <style>
+    :root{color-scheme:dark;--bg:#090909;--card:#111;--red:#f51d2b;--line:#2b2b2b;--text:#f7f7f7;--muted:#aaa}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    body{display:flex;align-items:flex-start;justify-content:center;padding:14px 10px 18px}
+    main{width:min(100%,430px);text-align:center}
+    .eyebrow{font-size:10px;font-weight:900;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin:3px 0 8px}
+    .status{font-size:12px;line-height:1.45;color:var(--muted);min-height:18px;margin:0 0 13px}
+    .widget-shell{width:100%;min-height:76px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;padding:7px;overflow:hidden}
+    #turnstile-widget{width:100%;min-width:0}
+    .note{font-size:10px;line-height:1.45;color:#777;margin:11px auto 0;max-width:360px}
+  </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">The Forge · Security Check</div>
+    <p class="status" id="status">Verifying that you're a real person…</p>
+    <div class="widget-shell"><div id="turnstile-widget"></div></div>
+    <p class="note">This check helps protect Forge accounts from automated abuse.</p>
+  </main>
+
+  <script>
+    (function () {
+      const SITE_KEY = '0x4AAAAAAESzVJRGPSnpM9LM';
+      const allowedActions = new Set(['signin', 'signup', 'reset']);
+      const requestedAction = new URLSearchParams(window.location.search).get('action') || 'signin';
+      const action = allowedActions.has(requestedAction) ? requestedAction : 'signin';
+      const status = document.getElementById('status');
+
+      function send(payload) {
+        try {
+          if (window.ReactNativeWebView && typeof window.ReactNativeWebView.postMessage === 'function') {
+            window.ReactNativeWebView.postMessage(JSON.stringify(payload));
+          }
+        } catch (_) {}
+      }
+
+      function renderWidget() {
+        if (!window.turnstile) {
+          setTimeout(renderWidget, 50);
+          return;
+        }
+
+        try {
+          window.turnstile.render('#turnstile-widget', {
+            sitekey: SITE_KEY,
+            theme: 'dark',
+            size: 'flexible',
+            appearance: 'always',
+            action: action,
+            callback: function (token) {
+              status.textContent = 'Security check complete.';
+              send({ type: 'verified', token: token, action: action });
+            },
+            'expired-callback': function () {
+              status.textContent = 'This check expired. Please complete it again.';
+              send({ type: 'expired', action: action });
+            },
+            'timeout-callback': function () {
+              status.textContent = 'This check timed out. Please try again.';
+              send({ type: 'expired', action: action });
+            },
+            'error-callback': function (code) {
+              status.textContent = 'The security check could not be completed.';
+              send({ type: 'error', code: String(code || ''), action: action });
+              return true;
+            },
+            'unsupported-callback': function () {
+              status.textContent = 'This device could not run the security check.';
+              send({ type: 'error', code: 'unsupported', action: action });
+            }
+          });
+        } catch (_) {
+          status.textContent = 'The security check could not load.';
+          send({ type: 'error', code: 'render-failed', action: action });
+        }
+      }
+
+      if (document.readyState === 'complete') renderWidget();
+      else window.addEventListener('load', renderWidget, { once: true });
+    })();
+  </script>
+</body>
+</html>
