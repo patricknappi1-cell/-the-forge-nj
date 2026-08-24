@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="robots" content="noindex" />
+  <title>Email Verified | The Forge</title>
+  <style>
+    :root { color-scheme: dark; --red:#f51d2b; --ink:#070707; --panel:#111; --muted:#b7b7b7; }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif}
+    body{min-height:100vh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(circle at 50% 0%,#2a090c 0,#090909 34%,#000 70%)}
+    .card{width:min(560px,100%);background:linear-gradient(180deg,#141414,#0a0a0a);border:1px solid #343434;border-top:4px solid var(--red);border-radius:18px;padding:34px 28px;box-shadow:0 24px 70px rgba(0,0,0,.55);text-align:center}
+    .brand{font-weight:900;letter-spacing:.12em;font-size:14px;color:#ddd;margin-bottom:28px}
+    .mark{width:70px;height:70px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;background:rgba(245,29,43,.12);border:2px solid var(--red);font-size:34px;font-weight:900;color:#fff}
+    h1{font-size:clamp(28px,7vw,42px);line-height:1;margin:0 0 14px;text-transform:uppercase;letter-spacing:.02em}
+    p{font-size:17px;line-height:1.55;color:var(--muted);margin:0 auto 14px;max-width:440px}
+    .accent{color:#fff;font-weight:700}
+    .line{height:1px;background:#2b2b2b;margin:26px 0}
+    .small{font-size:14px;color:#8f8f8f}
+    .error .mark{border-color:#777;background:#171717;color:#bbb}
+    .error h1{font-size:30px}
+  </style>
+</head>
+<body>
+  <main class="card" id="card" aria-live="polite">
+    <div class="brand">THE FORGE · FORGED IN FIRE MINISTRIES</div>
+    <div class="mark" id="mark">✓</div>
+    <h1 id="title">Email Verified</h1>
+    <p id="message"><span class="accent">You're all set.</span> Your email address has been confirmed.</p>
+    <p id="next">Return to <strong>The Forge app</strong> and sign in with the email and password you created. If member approval is still pending, the app will let you know.</p>
+    <div class="line"></div>
+    <p class="small">Faith · Discipline · Brotherhood</p>
+  </main>
+  <script>
+    (function () {
+      const search = new URLSearchParams(location.search);
+      const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
+      const error = search.get('error') || hash.get('error');
+      const description = search.get('error_description') || hash.get('error_description');
+      if (error) {
+        document.getElementById('card').classList.add('error');
+        document.getElementById('mark').textContent = '!';
+        document.getElementById('title').textContent = 'Verification Link Problem';
+        document.getElementById('message').textContent = description ? decodeURIComponent(description.replace(/\+/g, ' ')) : 'This verification link could not be completed.';
+        document.getElementById('next').textContent = 'Return to The Forge app and try signing in. If your email is still unverified, request a new verification email.';
+      }
+      // Remove auth tokens/error details from the visible address after the page has read them.
+      if (location.hash || location.search) history.replaceState(null, '', location.pathname);
+    })();
+  </script>
+</body>
+</html>
