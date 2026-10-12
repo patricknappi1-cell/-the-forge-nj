@@ -356,6 +356,29 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .potluck-trap{position:absolute;left:-10000px}.potluck-list-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px}.potluck-list-head button{background:none;border:1px solid #666;padding:10px}
 .potluck-table-wrap{overflow-x:auto}.potluck table{width:100%;border-collapse:collapse;text-align:left}.potluck th,.potluck td{padding:12px;border-bottom:1px solid #444;overflow-wrap:anywhere}.potluck th{color:#ddd}.potluck a{text-decoration:underline}
 @media(max-width:600px){.potluck{padding:16px}.potluck-list-head{align-items:flex-start}.potluck h5{font-size:18px}.potluck th,.potluck td{padding:10px 6px}}
+
+/* App downloads directly below the fixed site header */
+.app-downloads{margin-top:82px;background:#121212;border-bottom:1px solid var(--line);padding:18px 0}
+.app-downloads-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.app-downloads-copy{margin:0;font-size:15px;font-weight:900;letter-spacing:1px}
+.app-downloads-copy span{display:block;color:#aaa;font-size:12px;font-weight:400;letter-spacing:0;margin-top:2px}
+.app-store-links{display:flex;gap:12px;flex-wrap:wrap}
+.app-store-link{display:flex;flex-direction:column;justify-content:center;min-height:54px;min-width:174px;padding:8px 18px;background:#050505;border:1px solid #777;border-radius:8px;line-height:1.2}
+.app-store-link small{font-size:11px;color:#ddd}
+.app-store-link strong{font-size:20px;margin-top:2px}
+.app-store-link:hover{border-color:var(--red);background:#1c0809}
+.app-store-link:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.app-downloads+.hero{padding-top:70px}
+@media(max-width:600px){
+.app-downloads{padding:14px 0}
+.app-downloads-inner{justify-content:center;gap:12px;text-align:center}
+.app-downloads-copy{width:100%;font-size:14px}
+.app-store-links{width:100%;gap:10px;flex-wrap:nowrap}
+.app-store-link{flex:1;min-width:0;padding:9px 10px;text-align:left}
+.app-store-link strong{font-size:18px}
+.app-store-link small{font-size:10px}
+.app-downloads+.hero{padding-top:50px}
+}
 </style>
 </head>
 <body>
@@ -380,6 +403,20 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 </header>
 
 <main id="top">
+<section class="app-downloads" aria-label="Download The Forge app">
+  <div class="container app-downloads-inner">
+    <p class="app-downloads-copy">GET THE FORGE APP<span>Stay connected throughout the week.</span></p>
+    <div class="app-store-links">
+      <a class="app-store-link" href="https://apps.apple.com/app/the-forge-nj/id6808300660" aria-label="Download The Forge NJ on the App Store">
+        <small>Download on the</small><strong>App Store</strong>
+      </a>
+      <a class="app-store-link" href="https://play.google.com/store/apps/details?id=com.forgedinfireministries.theforge" aria-label="Get The Forge on Google Play">
+        <small>Get it on</small><strong>Google Play</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="forge-jesus-loves-you.jpg" aria-hidden="true">
   <source src="forge-homepage-hero-12sec-v2.mp4" type="video/mp4">
@@ -744,4 +781,5 @@ setInterval(()=>{if(!document.hidden)loadList();},30000);loadList();
 </script>
 </body>
 </html>
+
 
