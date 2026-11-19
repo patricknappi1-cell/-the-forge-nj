@@ -379,7 +379,13 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 .app-store-link small{font-size:10px}
 .app-downloads+.hero{padding-top:50px}
 }
+.hp-field{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.turnstile-wrap{margin:4px 0 2px;min-height:65px}
+.contact-status{display:none;margin:0;padding:12px;border:1px solid var(--red);color:#fff;font-size:14px;letter-spacing:0}
+.contact-status.show{display:block}
+#contact-submit:disabled{opacity:.65;cursor:wait}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <header class="site-header">
@@ -686,25 +692,40 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
     
     </div>
 
-<form class="contact-form" action="https://script.google.com/macros/s/AKfycbwr1AzIpv9ECG0K2A24kUzOWHuh2BeN8oP4K8yzcKJ2qP_H7HfEXOjfpRiIkoUl8q8x/exec" method="POST" target="hidden_iframe" onsubmit="showContactSuccess()">
+<form class="contact-form" action="https://script.google.com/macros/s/AKfycbwr1AzIpv9ECG0K2A24kUzOWHuh2BeN8oP4K8yzcKJ2qP_H7HfEXOjfpRiIkoUl8q8x/exec" method="POST" target="hidden_iframe" id="forge-contact-form">
 
 <label>Name
-  <input type="text" name="name" placeholder="Your name" required>
+  <input type="text" name="name" placeholder="Your name" maxlength="100" autocomplete="name" required>
 </label>
 
-  <label>Email
-    <input type="email" name="email" placeholder="you@email.com" required>
+<label>Email
+  <input type="email" name="email" placeholder="you@email.com" maxlength="254" autocomplete="email" required>
+</label>
+
+<label>Message
+  <textarea name="message" rows="5" placeholder="How can we help?" maxlength="4000" minlength="5" required></textarea>
+</label>
+
+<!-- Honeypot: real visitors never see or fill this field. -->
+<div class="hp-field" aria-hidden="true">
+  <label>Company
+    <input type="text" name="company" tabindex="-1" autocomplete="off">
   </label>
+</div>
 
-  <label>Message
-    <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
-  </label>
+<input type="hidden" name="form_started_at" id="form_started_at" value="">
+<input type="hidden" name="_subject" value="New message from The Forge NJ website">
 
-  <input type="hidden" name="_subject" value="New message from The Forge NJ website">
+<div class="turnstile-wrap">
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAAESzVJRGPSnpM9LM" data-action="contact" data-theme="dark"></div>
+</div>
+  <noscript><p class="contact-status show">JavaScript is required to submit this form securely.</p></noscript>
 
-  <button class="btn primary" type="submit">SEND MESSAGE</button>
+<div id="contact-error" class="contact-status" role="alert" aria-live="polite"></div>
+
+<button class="btn primary" type="submit" id="contact-submit">SEND MESSAGE</button>
 </form>
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
+    <iframe name="hidden_iframe" id="contact-response-frame" title="Contact form response" style="display:none;"></iframe>
 
 <div id="contact-success" style="display:none; margin-top:20px;">
   <h3>MESSAGE RECEIVED</h3>
@@ -728,16 +749,84 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 const btn=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-nav');btn?.addEventListener('click',()=>{const open=nav.classList.toggle('open');btn.setAttribute('aria-expanded',open)});document.querySelectorAll('.site-nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();
 </script>
   <script>
-function showContactSuccess() {
-  setTimeout(function() {
-    const form = document.querySelector('.contact-form');
-    const success = document.getElementById('contact-success');
+(function () {
+  const form = document.getElementById('forge-contact-form');
+  const submitButton = document.getElementById('contact-submit');
+  const errorBox = document.getElementById('contact-error');
+  const successBox = document.getElementById('contact-success');
+  const startedAt = document.getElementById('form_started_at');
+  if (!form) return;
 
-    form.reset();
-    success.style.display = 'block';
-    form.replaceWith(success);
-  }, 500);
-}
+  let pending = false;
+  let responseTimer;
+  function resetStartTime() { startedAt.value = String(Date.now()); }
+  function showError(message) {
+    errorBox.textContent = message;
+    errorBox.classList.add('show');
+  }
+  function finishAttempt() {
+    clearTimeout(responseTimer);
+    pending = false;
+    submitButton.disabled = false;
+    submitButton.textContent = 'SEND MESSAGE';
+  }
+  function resetSecurity() {
+    if (window.turnstile) window.turnstile.reset();
+    resetStartTime();
+  }
+  resetStartTime();
+
+  form.addEventListener('submit', function (event) {
+    if (pending) { event.preventDefault(); return; }
+    errorBox.textContent = '';
+    errorBox.classList.remove('show');
+    if (form.elements.company.value.trim()) { event.preventDefault(); return; }
+
+    const elapsed = Date.now() - Number(startedAt.value || 0);
+    if (!startedAt.value || elapsed < 2500 || elapsed > 60 * 60 * 1000) {
+      event.preventDefault();
+      if (elapsed > 60 * 60 * 1000 || !startedAt.value) resetStartTime();
+      showError('Please wait a moment and try again.');
+      return;
+    }
+    const tokenField = form.querySelector('input[name="cf-turnstile-response"]');
+    if (!tokenField || !tokenField.value.trim()) {
+      event.preventDefault();
+      showError('Please complete the security check before sending your message. If it does not appear, refresh this page or email info@theforgenj.com.');
+      return;
+    }
+
+    // Native form POST targets the hidden iframe; preserve all fields until acknowledgment.
+    pending = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'SENDING…';
+    responseTimer = setTimeout(function () {
+      finishAttempt();
+      showError('We could not confirm receipt. Your message is still here. Please check your email before trying again, or contact info@theforgenj.com.');
+      resetSecurity();
+    }, 30000);
+  });
+
+  window.addEventListener('message', function (event) {
+    // Apps Script posts from its sandbox, including per-deployment Googleusercontent hosts.
+    const trustedOrigin = event.origin === 'https://script.google.com' ||
+      event.origin === 'https://script.googleusercontent.com' ||
+      /^https:\/\/[a-z0-9-]+-script\.googleusercontent\.com$/.test(event.origin);
+    if (!pending || !trustedOrigin) return;
+    const data = event.data;
+    if (!data || data.source !== 'forge-contact' || typeof data.ok !== 'boolean') return;
+
+    finishAttempt();
+    if (data.ok === true) {
+      form.reset();
+      form.style.display = 'none';
+      successBox.style.display = 'block';
+    } else {
+      showError(typeof data.message === 'string' ? data.message : 'We could not verify your submission. Please try again.');
+      resetSecurity();
+    }
+  });
+})();
 </script>
 
 <script>
