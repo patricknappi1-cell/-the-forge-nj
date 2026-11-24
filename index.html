@@ -402,30 +402,10 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
  .calendar-event.christmas-kids-event .calendar-more {padding:3px 0}
 }
 
-/* Christmas kids event signup — scoped to this event only */
+/* Christmas event buttons only — signup lives on a separate page */
 #christmas-at-the-forge .christmas-cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 #christmas-at-the-forge .christmas-cta-row .btn{font-size:12px;text-align:center}
-#christmas-signup{scroll-margin-top:110px;margin-top:20px;border:1px solid #3d5548;border-top:5px solid #c82f33;border-radius:5px;background:#0d1815;padding:clamp(20px,4vw,36px)}
-#christmas-signup .christmas-signup-head{margin-bottom:25px}
-#christmas-signup .christmas-signup-head h3{font-size:clamp(26px,3vw,38px);line-height:1.2;margin:0 0 8px}
-#christmas-signup .christmas-signup-head p{margin:8px 0;color:#ccc;font-size:16px}
-#christmas-signup .christmas-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
-#christmas-signup .christmas-field{display:flex;flex-direction:column;gap:7px}
-#christmas-signup .christmas-field.full{grid-column:1/-1}
-#christmas-signup label{font-size:13px;font-weight:800;color:#eee;letter-spacing:.3px}
-#christmas-signup input,#christmas-signup textarea{display:block;width:100%;padding:12px 14px;color:#fff;background:#090b0b;border:1px solid #69756d;border-radius:4px;font:inherit;font-size:16px;min-height:46px}
-#christmas-signup textarea{min-height:84px;resize:vertical}
-#christmas-signup input:focus,#christmas-signup textarea:focus{outline:2px solid #dfbd73;outline-offset:2px}
-#christmas-signup .christmas-form-note{font-size:13px;color:#b8c6be;margin:16px 0}
-#christmas-signup button{cursor:pointer;color:#fff}
-#christmas-signup button:disabled{opacity:.65;cursor:wait}
-#christmas-signup .christmas-status{display:none;padding:14px;margin-top:15px;border:1px solid #b77435;background:#241a11;color:#fff}
-#christmas-signup .christmas-status.show{display:block}
-#christmas-signup .christmas-success{display:none;border:1px solid #4d8b69;background:#10281b;padding:22px;margin-top:15px}
-#christmas-signup .christmas-success h4{font-size:24px;margin:0 0 10px}
-#christmas-signup .christmas-success p{color:#eee;margin:6px 0}
-#christmas-signup .christmas-success a{color:#ffcf87;text-decoration:underline}
-@media(max-width:680px){#christmas-signup .christmas-form-grid{grid-template-columns:1fr}#christmas-signup .christmas-field.full{grid-column:auto}#christmas-at-the-forge .christmas-cta-row .btn{width:100%}}
+@media(max-width:680px){#christmas-at-the-forge .christmas-cta-row .btn{width:100%}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -596,7 +576,7 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
 
     <!-- Christmas at The Forge — December 11, 2026 -->
     <article id="christmas-at-the-forge" class="event-feature">
-      <a class="event-image christmas-event-image" href="Christmas%20at%20The%20Forge%20Kids%20Event.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Christmas at The Forge kids event flyer">
+      <a class="event-image christmas-event-image" href="christmas-at-the-forge-signup.html" aria-label="Sign up for the Christmas at The Forge kids event">
         <img src="Christmas%20at%20The%20Forge%20Kids%20Event.png" alt="Christmas at The Forge Kids Event: December 11, 5:30 to 7:30 PM, Christmas craft, the story of Jesus's birth, hot cocoa and snacks" loading="lazy">
       </a>
       <div class="event-copy">
@@ -605,48 +585,12 @@ footer{border-top:1px solid var(--line);background:#050505;padding:32px 0}.foote
         <p><strong>KIDS EVENT!</strong><br>Christmas Craft<br>The Story of Jesus’s Birth<br>Hot Cocoa and snacks will be served.</p>
         <p><strong>Come dressed in pajamas or something comfy!</strong></p>
         <div class="christmas-cta-row">
-          <a class="btn primary" href="#christmas-signup">SIGN UP FOR THE KIDS EVENT</a>
+          <a class="btn primary" href="christmas-at-the-forge-signup.html">CLICK HERE TO SIGN UP</a>
           <a class="btn secondary" href="Christmas%20at%20The%20Forge%20Kids%20Event.png" target="_blank" rel="noopener noreferrer">VIEW CHRISTMAS FLYER</a>
         </div>
       </div>
     </article>
 
-    <!-- Parents register here; submissions go to The Forge's existing Events Sign Up 2026 Google Sheet. -->
-    <section id="christmas-signup" aria-labelledby="christmas-signup-title">
-      <div class="christmas-signup-head">
-        <p class="eyebrow">DECEMBER 11, 2026 • 5:30–7:30 PM</p>
-        <h3 id="christmas-signup-title">Christmas at The Forge — Kids Sign Up</h3>
-        <p>Parents and guardians: sign up here so we know how many children to prepare crafts, cocoa, and snacks for!</p>
-      </div>
-      <form id="christmas-register-form" method="POST" target="christmas_submission_iframe" action="https://script.google.com/macros/s/AKfycbzbWJnLxq4K9FznOHIdz6mND5bKbPsXLEvNkXylLJyVN6wLq6r7Of0FC77RsYYogxzLoA/exec">
-        <input type="hidden" name="formType" value="attendee">
-        <input type="hidden" name="eventKey" value="christmas-at-the-forge-2026">
-        <input type="hidden" name="eventName" value="Christmas at The Forge — Kids Event">
-        <input type="hidden" name="eventDate" value="2026-12-11">
-        <input type="hidden" name="eventTime" value="5:30 PM - 7:30 PM">
-        <input type="hidden" name="eventLocation" value="The Forge, 1 Evans St, Fairfield, NJ 07004">
-        <input type="hidden" name="numberAttending" id="christmas-total-attending" value="2">
-        <input type="hidden" name="notes" id="christmas-compiled-notes" value="">
-        <div class="christmas-form-grid">
-          <div class="christmas-field"><label for="christmas-first">Parent / Guardian First Name *</label><input id="christmas-first" name="firstName" type="text" autocomplete="given-name" maxlength="80" required></div>
-          <div class="christmas-field"><label for="christmas-last">Parent / Guardian Last Name *</label><input id="christmas-last" name="lastName" type="text" autocomplete="family-name" maxlength="80" required></div>
-          <div class="christmas-field"><label for="christmas-email">Email *</label><input id="christmas-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
-          <div class="christmas-field"><label for="christmas-phone">Phone (optional)</label><input id="christmas-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
-          <div class="christmas-field"><label for="christmas-children">Number of Children Attending *</label><input id="christmas-children" type="number" min="1" max="20" step="1" value="1" required></div>
-          <div class="christmas-field"><label for="christmas-adults">Number of Adults / Guardians Attending *</label><input id="christmas-adults" type="number" min="0" max="20" step="1" value="1" required></div>
-          <div class="christmas-field full"><label for="christmas-extra-notes">Questions or notes (optional)</label><textarea id="christmas-extra-notes" maxlength="280" rows="3" placeholder="Anything the organizers should know about your attendance?"></textarea></div>
-        </div>
-        <p class="christmas-form-note">* Required. Your contact information will be used by The Forge to organize this event. Please do not include children's private or medical details.</p>
-        <button class="btn primary" id="christmas-submit" type="submit">COMPLETE CHRISTMAS SIGN UP</button>
-        <p id="christmas-status" class="christmas-status" role="status" aria-live="polite"></p>
-      </form>
-      <iframe id="christmas_submission_iframe" name="christmas_submission_iframe" title="Christmas registration submission" style="display:none"></iframe>
-      <div id="christmas-success" class="christmas-success" role="status" aria-live="polite">
-        <h4>Thank you for signing up! 🎄</h4>
-        <p>Your registration form has been sent to The Forge. We're looking forward to seeing you on Friday, December 11, from 5:30–7:30 PM!</p>
-        <p>If you need to update your plans or confirm receipt, email <a href="mailto:info@theforgenj.com?subject=Christmas%20Kids%20Event%20Signup">info@theforgenj.com</a>.</p>
-      </div>
-    </section>
     <div class="event-feature">
       <div class="event-image"><img src="forge-men-huddle.jpg" alt="Men in a prayer huddle at The Forge"></div>
       <div class="event-copy">
@@ -962,54 +906,7 @@ setInterval(()=>{if(!document.hidden)loadList();},30000);loadList();
 })();
 </script>
 
-<script>
-(function () {
-  const form = document.getElementById('christmas-register-form');
-  const iframe = document.getElementById('christmas_submission_iframe');
-  const submit = document.getElementById('christmas-submit');
-  const notice = document.getElementById('christmas-status');
-  const success = document.getElementById('christmas-success');
-  if (!form || !iframe || !submit || !notice || !success) return;
-  let pending = false;
-  let watchdog;
-  function error(message) {
-    notice.textContent = message;
-    notice.classList.add('show');
-    submit.disabled = false;
-    submit.textContent = 'COMPLETE CHRISTMAS SIGN UP';
-    pending = false;
-  }
-  form.addEventListener('submit', function (event) {
-    if (pending) { event.preventDefault(); return; }
-    const children = Number(document.getElementById('christmas-children').value);
-    const adults = Number(document.getElementById('christmas-adults').value);
-    if (!Number.isInteger(children) || children < 1 || children > 20 || !Number.isInteger(adults) || adults < 0 || adults > 20) {
-      event.preventDefault();
-      error('Please enter a valid number of children and adults.');
-      return;
-    }
-    document.getElementById('christmas-total-attending').value = String(children + adults);
-    const other = document.getElementById('christmas-extra-notes').value.trim();
-    document.getElementById('christmas-compiled-notes').value =
-      'Children: ' + children + '; Adults/Guardians: ' + adults + (other ? '; Notes: ' + other : '');
-    notice.classList.remove('show');
-    notice.textContent = '';
-    submit.disabled = true;
-    submit.textContent = 'SENDING...';
-    pending = true;
-    watchdog = setTimeout(function () {
-      if (pending) error('We could not confirm that your form went through. Please email info@theforgenj.com before trying again.');
-    }, 25000);
-  });
-  iframe.addEventListener('load', function () {
-    if (!pending) return;
-    clearTimeout(watchdog);
-    pending = false;
-    form.style.display = 'none';
-    success.style.display = 'block';
-  });
-})();
-</script>
+
 </body>
 </html>
 
